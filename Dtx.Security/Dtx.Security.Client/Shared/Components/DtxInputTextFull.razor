@@ -1,0 +1,23 @@
+﻿@inherits InputText
+@using System.Linq.Expressions
+@typeparam TValue
+
+<div class="row">
+	<label>@For.</label>
+	<div class="form-group">
+		<InputText @bind-Value="@CurrentValue" />
+		<ValidationMessage For="@For" />
+	</div>
+</div>
+
+@code {
+
+	[Parameter]
+	public Expression<Func<TValue>> For { get; set; }
+
+	//internal static string GetPropertyAttributeShortName(string propertyName)
+	//{
+	//	return ((DisplayAttribute)(typeof(SensorsModel).GetProperty(propertyName).GetCustomAttribute(typeof(DisplayAttribute)))).ShortName;
+	//}
+
+}

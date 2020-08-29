@@ -31,7 +31,6 @@ namespace Dtx.Security.Server
 			//if (env.IsDevelopment())
 			//{
 			//	app.UseDeveloperExceptionPage();
-			//	app.UseWebAssemblyDebugging();
 			//}
 			//else
 			//{
