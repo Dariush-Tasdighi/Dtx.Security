@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dtx.Security.Server", "Dtx.Security\Server\Dtx.Security.Server.csproj", "{AD2D55DC-7D0C-44DF-A3AF-8A1D402D35A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtx.Security.Server", "Dtx.Security\Server\Dtx.Security.Server.csproj", "{AD2D55DC-7D0C-44DF-A3AF-8A1D402D35A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dtx.Security.Client", "Dtx.Security\Client\Dtx.Security.Client.csproj", "{F3176E9B-4988-4E56-88CC-9C097403A064}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtx.Security.Client", "Dtx.Security\Client\Dtx.Security.Client.csproj", "{F3176E9B-4988-4E56-88CC-9C097403A064}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dtx.Security.Shared", "Dtx.Security\Shared\Dtx.Security.Shared.csproj", "{94A1F6A4-1D54-45E3-943B-C0FF71E24A33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resources", "Dtx.Security\Resources\Resources.csproj", "{3B39DB8D-FC9A-4CD9-AC41-C69859FC16EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Dtx.Security\Resources\Resources.csproj", "{3B39DB8D-FC9A-4CD9-AC41-C69859FC16EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Dtx.Security\Models\Models.csproj", "{13339654-7CAC-4DE0-9C84-EBF69860BE2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Dtx.Security\Models\Models.csproj", "{13339654-7CAC-4DE0-9C84-EBF69860BE2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Dtx.Security\Data\Data.csproj", "{98CBB170-4F8F-4BE1-ACB2-B9E246E3DE4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Dtx.Security\Data\Data.csproj", "{98CBB170-4F8F-4BE1-ACB2-B9E246E3DE4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "Dtx.Security\ViewModels\ViewModels.csproj", "{871AD768-D911-4D2F-990E-A168C650CDA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dtx", "Dtx.Security\Dtx\Dtx.csproj", "{4326F5C6-9129-487D-8229-43B6339F3915}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +31,6 @@ Global
 		{F3176E9B-4988-4E56-88CC-9C097403A064}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3176E9B-4988-4E56-88CC-9C097403A064}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3176E9B-4988-4E56-88CC-9C097403A064}.Release|Any CPU.Build.0 = Release|Any CPU
-		{94A1F6A4-1D54-45E3-943B-C0FF71E24A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{94A1F6A4-1D54-45E3-943B-C0FF71E24A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{94A1F6A4-1D54-45E3-943B-C0FF71E24A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{94A1F6A4-1D54-45E3-943B-C0FF71E24A33}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B39DB8D-FC9A-4CD9-AC41-C69859FC16EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B39DB8D-FC9A-4CD9-AC41-C69859FC16EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B39DB8D-FC9A-4CD9-AC41-C69859FC16EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +43,14 @@ Global
 		{98CBB170-4F8F-4BE1-ACB2-B9E246E3DE4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98CBB170-4F8F-4BE1-ACB2-B9E246E3DE4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98CBB170-4F8F-4BE1-ACB2-B9E246E3DE4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{871AD768-D911-4D2F-990E-A168C650CDA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{871AD768-D911-4D2F-990E-A168C650CDA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{871AD768-D911-4D2F-990E-A168C650CDA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{871AD768-D911-4D2F-990E-A168C650CDA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4326F5C6-9129-487D-8229-43B6339F3915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4326F5C6-9129-487D-8229-43B6339F3915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4326F5C6-9129-487D-8229-43B6339F3915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4326F5C6-9129-487D-8229-43B6339F3915}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

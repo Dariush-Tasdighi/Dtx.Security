@@ -1,1 +1,7 @@
-﻿Install-Package Microsoft.EntityFrameworkCore
+﻿Nuget(s):
+
+Install-Package Microsoft.EntityFrameworkCore
+
+Project(s):
+
+-----
