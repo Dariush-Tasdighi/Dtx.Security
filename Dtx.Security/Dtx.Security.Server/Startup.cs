@@ -7,8 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Dtx.Security.Server
 {
-	public class Startup
+	public class Startup : object
 	{
+		public const string AdminCorsPolicy = "_ADMIN_CORS_POLICY";
+		public const string OthersCorsPolicy = "_OTHERS_CORS_POLICY";
+
 		public Startup(IConfiguration configuration)
 		{
 			Configuration = configuration;
@@ -18,6 +21,31 @@ namespace Dtx.Security.Server
 
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddCors(options =>
+			{
+				options.AddPolicy(AdminCorsPolicy,
+					builder =>
+					{
+						builder
+							.WithOrigins("http://localhost:1202")
+							.AllowAnyHeader()
+							.AllowAnyMethod()
+							//.AllowCredentials()
+							;
+					});
+
+				options.AddPolicy(OthersCorsPolicy,
+					builder =>
+					{
+						builder
+							.AllowAnyOrigin()
+							.AllowAnyHeader()
+							.AllowAnyMethod()
+							//.AllowCredentials()
+							;
+					});
+			});
+
 			services.AddControllers();
 
 			services.AddDbContext<Data.DatabaseContext>(options =>
@@ -41,6 +69,8 @@ namespace Dtx.Security.Server
 			//}
 
 			//app.UseHttpsRedirection();
+
+			app.UseCors(policyName: AdminCorsPolicy);
 
 			app.UseRouting();
 
