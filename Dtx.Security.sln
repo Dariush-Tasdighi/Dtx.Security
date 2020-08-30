@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtx.Security.Server", "Dtx.Security\Server\Dtx.Security.Server.csproj", "{AD2D55DC-7D0C-44DF-A3AF-8A1D402D35A6}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resources", "Dtx.Security\Resources\Resources.csproj", "{3B39DB8D-FC9A-4CD9-AC41-C69859FC16EB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Dtx.Security\Models\Models.csproj", "{13339654-7CAC-4DE0-9C84-EBF69860BE2E}"
@@ -15,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModels", "Dtx.Security\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtx", "Dtx.Security\Dtx\Dtx.csproj", "{4326F5C6-9129-487D-8229-43B6339F3915}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dtx.Security.Client", "Dtx.Security\Dtx.Security.Client\Dtx.Security.Client.csproj", "{52C0D2AB-ED72-49FB-ACC9-7C5C9EB8714B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtx.Security.Client", "Dtx.Security\Dtx.Security.Client\Dtx.Security.Client.csproj", "{52C0D2AB-ED72-49FB-ACC9-7C5C9EB8714B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dtx.Security.Server", "Dtx.Security\Dtx.Security.Server\Dtx.Security.Server.csproj", "{BDE4F424-6B10-417D-BE17-B8E88FD02ED8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AD2D55DC-7D0C-44DF-A3AF-8A1D402D35A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD2D55DC-7D0C-44DF-A3AF-8A1D402D35A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD2D55DC-7D0C-44DF-A3AF-8A1D402D35A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD2D55DC-7D0C-44DF-A3AF-8A1D402D35A6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3B39DB8D-FC9A-4CD9-AC41-C69859FC16EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3B39DB8D-FC9A-4CD9-AC41-C69859FC16EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B39DB8D-FC9A-4CD9-AC41-C69859FC16EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,10 @@ Global
 		{52C0D2AB-ED72-49FB-ACC9-7C5C9EB8714B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52C0D2AB-ED72-49FB-ACC9-7C5C9EB8714B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52C0D2AB-ED72-49FB-ACC9-7C5C9EB8714B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDE4F424-6B10-417D-BE17-B8E88FD02ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE4F424-6B10-417D-BE17-B8E88FD02ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDE4F424-6B10-417D-BE17-B8E88FD02ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE4F424-6B10-417D-BE17-B8E88FD02ED8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
