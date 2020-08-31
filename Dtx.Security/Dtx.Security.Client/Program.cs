@@ -1,23 +1,36 @@
-using System;
-using System.Net.Http;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Text;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
+//using System;
+//using System.Net.Http;
+//using System.Collections.Generic;
+//using System.Threading.Tasks;
+//using System.Text;
+//using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+//using Microsoft.Extensions.Configuration;
+//using Microsoft.Extensions.DependencyInjection;
+//using Microsoft.Extensions.Logging;
+
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace Dtx.Security.Client
 {
-	public class Program
+	public static class Program
 	{
-		public static async Task Main(string[] args)
+		static Program()
 		{
-			var builder = WebAssemblyHostBuilder.CreateDefault(args);
+		}
+
+		public static async System.Threading.Tasks.Task Main(string[] args)
+		{
+			var builder =
+				Microsoft.AspNetCore.Components.WebAssembly
+				.Hosting.WebAssemblyHostBuilder.CreateDefault(args);
+
 			builder.RootComponents.Add<App>("app");
 
-			builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+			builder.Services.AddScoped
+				(sp => new System.Net.Http.HttpClient
+				{
+					BaseAddress = new System.Uri(builder.HostEnvironment.BaseAddress)
+				});
 
 			await builder.Build().RunAsync();
 		}

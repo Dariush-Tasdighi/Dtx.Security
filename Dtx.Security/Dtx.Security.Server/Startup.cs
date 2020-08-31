@@ -1,9 +1,6 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Dtx.Security.Server
 {
@@ -12,14 +9,15 @@ namespace Dtx.Security.Server
 		public const string AdminCorsPolicy = "_ADMIN_CORS_POLICY";
 		public const string OthersCorsPolicy = "_OTHERS_CORS_POLICY";
 
-		public Startup(IConfiguration configuration)
+		public Startup(Microsoft.Extensions.Configuration.IConfiguration configuration)
 		{
 			Configuration = configuration;
 		}
 
-		public IConfiguration Configuration { get; }
+		public Microsoft.Extensions.Configuration.IConfiguration Configuration { get; }
 
-		public void ConfigureServices(IServiceCollection services)
+		public void ConfigureServices
+			(Microsoft.Extensions.DependencyInjection.IServiceCollection services)
 		{
 			services.AddCors(options =>
 			{
@@ -55,7 +53,9 @@ namespace Dtx.Security.Server
 			});
 		}
 
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+		public void Configure
+			(Microsoft.AspNetCore.Builder.IApplicationBuilder app,
+			Microsoft.AspNetCore.Hosting.IWebHostEnvironment env)
 		{
 			//if (env.IsDevelopment())
 			//{

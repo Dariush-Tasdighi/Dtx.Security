@@ -10,7 +10,8 @@ namespace Dtx.Security.Server.Controllers
 		}
 
 		[Microsoft.AspNetCore.Mvc.HttpGet]
-		public Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.IEnumerable<Models.Application>> Get()
+		public Microsoft.AspNetCore.Mvc.ActionResult
+			<System.Collections.Generic.IEnumerable<Models.Application>> Get()
 		{
 			var result =
 				MyDatabaseContext.Applications
@@ -20,21 +21,22 @@ namespace Dtx.Security.Server.Controllers
 			return Ok(value: result);
 		}
 
-		//[Microsoft.AspNetCore.Mvc.HttpGet("{0}")]
-		//public Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.IEnumerable<Models.Application>> Get(long id)
-		//{
-		//	var result =
-		//		MyDatabaseContext.Applications
-		//		.ToList()
-		//		;
+		[Microsoft.AspNetCore.Mvc.HttpGet("{0}")]
+		public Microsoft.AspNetCore.Mvc.ActionResult<Models.Application> Get(System.Guid id)
+		{
+			var foundedEntity =
+				MyDatabaseContext.Applications
+				.Where(current => current.Id == id)
+				.FirstOrDefault();
 
-		//	return Ok(value: result);
-		//}
+			return Ok(value: foundedEntity);
+		}
 
 		[Microsoft.AspNetCore.Mvc.HttpPost]
-		public Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.IEnumerable<Models.Application>> Post(ViewModels.Applications.CreateViewModel viewModel)
+		public Microsoft.AspNetCore.Mvc.ActionResult
+			<Models.Application> Post(ViewModels.Applications.CreateViewModel viewModel)
 		{
-			Models.Application application =
+			var newEntity =
 				new Models.Application
 				{
 					Name = viewModel.Name,
@@ -49,11 +51,11 @@ namespace Dtx.Security.Server.Controllers
 					//VerifyDateTime = Models.Utility.Now,
 				};
 
-			MyDatabaseContext.Applications.Add(application);
+			MyDatabaseContext.Applications.Add(newEntity);
 
 			MyDatabaseContext.SaveChangesAsync();
 
-			return Ok(value: application);
+			return Ok(value: newEntity);
 		}
 	}
 }
