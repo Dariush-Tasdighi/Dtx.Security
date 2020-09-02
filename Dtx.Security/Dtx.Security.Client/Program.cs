@@ -1,13 +1,3 @@
-//using System;
-//using System.Net.Http;
-//using System.Collections.Generic;
-//using System.Threading.Tasks;
-//using System.Text;
-//using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-//using Microsoft.Extensions.Configuration;
-//using Microsoft.Extensions.DependencyInjection;
-//using Microsoft.Extensions.Logging;
-
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Dtx.Security.Client
@@ -31,6 +21,8 @@ namespace Dtx.Security.Client
 				{
 					BaseAddress = new System.Uri(builder.HostEnvironment.BaseAddress)
 				});
+
+			builder.Services.AddTransient<Services.ApplicationService>();
 
 			await builder.Build().RunAsync();
 		}

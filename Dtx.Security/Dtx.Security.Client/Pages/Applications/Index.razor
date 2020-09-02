@@ -1,5 +1,6 @@
 ﻿@page "/applications/index"
-@inject HttpClient Http
+@*@inject HttpClient Http*@
+@inject Services.ApplicationService applicationService
 
 <h3>Index</h3>
 
@@ -72,14 +73,27 @@ else
 
 	}*@
 
+@*@code
+	{
+
+		protected override async Task OnInitializedAsync()
+		{
+			Collection =
+				await Http.GetFromJsonAsync<System.Collections.Generic.IList<Models.Application>>
+				(requestUri: "http://localhost:5086/Applications");
+		}
+
+		public System.Collections.Generic.IList<Models.Application> Collection { get; set; }
+
+	}*@
+
 @code
 {
 
 	protected override async Task OnInitializedAsync()
 	{
 		Collection =
-			await Http.GetFromJsonAsync<System.Collections.Generic.IList<Models.Application>>
-			(requestUri: "http://localhost:5086/Applications");
+			await applicationService.GetAsync();
 	}
 
 	public System.Collections.Generic.IList<Models.Application> Collection { get; set; }
