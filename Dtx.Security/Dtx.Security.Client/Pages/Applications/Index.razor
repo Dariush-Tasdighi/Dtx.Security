@@ -2,7 +2,13 @@
 @*@inject HttpClient Http*@
 @inject Services.ApplicationService applicationService
 
-<h3>Index</h3>
+<h3>
+	Index
+</h3>
+
+<div>
+	<a href="/application/create" class="btn btn-primary">Create</a>
+</div>
 
 @if (Collection == null)
 {

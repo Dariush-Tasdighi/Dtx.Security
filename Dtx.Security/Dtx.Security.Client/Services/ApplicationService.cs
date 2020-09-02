@@ -14,19 +14,32 @@ namespace Dtx.Security.Client.Services
 		}
 
 		public async System.Threading.Tasks.Task
-			<System.Collections.Generic.IList<Models.Application>> GetAsync()
+			<System.Collections.Generic.IList<Models.Application>>
+			GetAsync()
 		{
-			var response =
+			var result =
 				await Client.GetFromJsonAsync
 				<System.Collections.Generic.IList<Models.Application>>
 				(requestUri: RequestUri);
 
-			//response.EnsureSuccessStatusCode();
+			return result;
+		}
 
-			//using var responseStream = await response.Content.ReadAsStreamAsync();
-			//return await JsonSerializer.DeserializeAsync<TodoDto>(responseStream, _jsonOptions);
+		public async System.Threading.Tasks.Task
+			<Models.Application>
+			PostAsync(ViewModels.Applications.CreateViewModel viewModel)
+		{
+			var response =
+				await Client.PostAsJsonAsync
+				(requestUri: RequestUri, value: viewModel);
 
-			return response;
+			//var result =
+			//	response.Content.ReadFromJsonAsync<Models.Application>().Result;
+
+			Models.Application result =
+				await response.Content.ReadFromJsonAsync<Models.Application>();
+
+			return result;
 		}
 	}
 }

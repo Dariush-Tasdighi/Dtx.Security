@@ -1,0 +1,27 @@
+﻿@page "/application/create"
+@inject Services.ApplicationService applicationService
+
+<h3>
+	Create
+</h3>
+
+<FormEditor Model="Model" OnValidSubmit="Submit" />
+
+@code
+{
+	public ViewModels.Applications.CreateViewModel Model { get; set; }
+
+	protected override void OnInitialized()
+	{
+		Model =
+			new ViewModels.Applications.CreateViewModel();
+	}
+
+	private async Task Submit()
+	{
+		var entity =
+			await applicationService.PostAsync(Model);
+
+		System.Guid id = entity.Id;
+	}
+}

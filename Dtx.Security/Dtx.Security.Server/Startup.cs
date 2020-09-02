@@ -44,7 +44,13 @@ namespace Dtx.Security.Server
 					});
 			});
 
-			services.AddControllers();
+			//services.AddControllers();
+
+			services.AddControllers().AddJsonOptions(options =>
+			{
+				options.JsonSerializerOptions.MaxDepth = 5;
+				options.JsonSerializerOptions.PropertyNamingPolicy = null;
+			});
 
 			services.AddDbContext<Data.DatabaseContext>(options =>
 			{

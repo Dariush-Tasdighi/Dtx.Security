@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtx", "Dtx.Security\Dtx\Dtx
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtx.Security.Client", "Dtx.Security\Dtx.Security.Client\Dtx.Security.Client.csproj", "{52C0D2AB-ED72-49FB-ACC9-7C5C9EB8714B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dtx.Security.Server", "Dtx.Security\Dtx.Security.Server\Dtx.Security.Server.csproj", "{BDE4F424-6B10-417D-BE17-B8E88FD02ED8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtx.Security.Server", "Dtx.Security\Dtx.Security.Server\Dtx.Security.Server.csproj", "{BDE4F424-6B10-417D-BE17-B8E88FD02ED8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
