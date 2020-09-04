@@ -7,8 +7,15 @@
 
 <FormEditor Model="Model" OnValidSubmit="Submit" />
 
+<hr />
+
+@CreatedModel?.Id
+@CreatedModel?.InsertDateTime
+@CreatedModel?.UpdateDateTime
+
 @code
 {
+	public Models.Application CreatedModel { get; set; }
 	public ViewModels.Applications.CreateViewModel Model { get; set; }
 
 	protected override void OnInitialized()
@@ -19,9 +26,7 @@
 
 	private async Task Submit()
 	{
-		var entity =
+		CreatedModel =
 			await applicationService.PostAsync(Model);
-
-		System.Guid id = entity.Id;
 	}
 }
