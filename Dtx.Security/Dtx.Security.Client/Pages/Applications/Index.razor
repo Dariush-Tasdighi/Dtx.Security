@@ -1,9 +1,8 @@
 ﻿@page "/applications/index"
-@*@inject HttpClient Http*@
 @inject Services.ApplicationService applicationService
 
 <h3>
-	Index
+	List
 </h3>
 
 <div>
@@ -16,82 +15,71 @@
 }
 else
 {
-	<div>
-		<table>
-			<thead>
+	<div class="table-responsive">
+		<table class="table table-striped table-bordered table-hover table-sm">
+
+			<caption>List of Applications</caption>
+
+			<thead class="thead-light">
 				<tr>
-					<th>
+					<th scope="col">
 						#
 					</th>
-					<th>
+					<th scope="col">
 						@(Resources.DataDictionary.Name)
 					</th>
-					<th>
+					<th scope="col">
+						@(Resources.DataDictionary.Title)
+					</th>
+					<th scope="col">
 						@(Resources.DataDictionary.IsActive)
+					</th>
+					<th scope="col">
+						@(Resources.DataDictionary.IsVerified)
+					</th>
+					<th scope="col">
+						@(Resources.DataDictionary.IsIPRestricted)
+					</th>
+					<th scope="col">
+						@(Resources.DataDictionary.IsUrlRestricted)
 					</th>
 				</tr>
 			</thead>
+
 			<tbody>
 				@for (int index = 0; index < Collection.Count; index++)
 				{
 					var entity = Collection[index];
 
 					<tr>
-						<td>
+						<th scope="row">
 							@(index + 1)
-						</td>
+						</th>
 						<td>
 							@(entity.Name)
 						</td>
 						<td>
+							@(entity.Title)
+						</td>
+						<td>
 							<DtxDisabledCheckBox Value="entity.IsActive" />
+						</td>
+						<td>
+							<DtxDisabledCheckBox Value="entity.IsVerified" />
+						</td>
+						<td>
+							<DtxDisabledCheckBox Value="entity.IsIPRestricted" />
+						</td>
+						<td>
+							<DtxDisabledCheckBox Value="entity.IsUrlRestricted" />
 						</td>
 					</tr>
 				}
 			</tbody>
+
 		</table>
 	</div>
 }
-
-@*@code {
-
-		protected override void OnInitialized()
-		{
-			base.OnInitialized();
-
-			Collection =
-				new List<Models.Application>();
-
-			for (int index = 1; index <= 10; index++)
-			{
-				var entity =
-					new Models.Application
-					{
-						Name = $"Name { index }",
-						IsActive = index % 2 == 0,
-					};
-
-				Collection.Add(entity);
-			}
-		}
-
-		public System.Collections.Generic.List<Models.Application> Collection { get; set; }
-
-	}*@
-
-@*@code
-	{
-
-		protected override async Task OnInitializedAsync()
-		{
-			Collection =
-				await Http.GetFromJsonAsync<System.Collections.Generic.IList<Models.Application>>
-				(requestUri: "http://localhost:5086/Applications");
-		}
-
-		public System.Collections.Generic.IList<Models.Application> Collection { get; set; }
-
-	}*@
 
 @code
 {
