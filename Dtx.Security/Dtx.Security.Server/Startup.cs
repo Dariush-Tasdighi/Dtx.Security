@@ -57,6 +57,12 @@ namespace Dtx.Security.Server
 				options.UseSqlServer
 				(connectionString: "Password=1234512345;Persist Security Info=True;User ID=SA;Initial Catalog=DtxSecurity;Data Source=.");
 			});
+
+			//services.AddDbContext<Data.DatabaseContext>(options =>
+			//{
+			//	options.UseSqlServer
+			//	(connectionString: Configuration.GetSection(key: "ConnectionStrings").GetSection(key: "MyConnectionStringName");
+			//});
 		}
 
 		public void Configure
