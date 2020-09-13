@@ -1,6 +1,6 @@
 ﻿namespace Data
 {
-	public class DatabaseContext : Microsoft.EntityFrameworkCore.DbContext //, IDatabaseContext
+	internal class DatabaseContext : Microsoft.EntityFrameworkCore.DbContext //, IDatabaseContext
 	{
 		#region Solution (1)
 		//public DatabaseContext() : base()

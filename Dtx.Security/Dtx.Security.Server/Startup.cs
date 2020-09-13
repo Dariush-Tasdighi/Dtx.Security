@@ -52,17 +52,31 @@ namespace Dtx.Security.Server
 				options.JsonSerializerOptions.PropertyNamingPolicy = null;
 			});
 
-			services.AddDbContext<Data.DatabaseContext>(options =>
-			{
-				options.UseSqlServer
-				(connectionString: "Password=1234512345;Persist Security Info=True;User ID=SA;Initial Catalog=DtxSecurity;Data Source=.");
-			});
+			//services.AddDbContext<Data.DatabaseContext>(options =>
+			//{
+			//	options.UseSqlServer
+			//	(connectionString: "Password=1234512345;Persist Security Info=True;User ID=SA;Initial Catalog=DtxSecurity;Data Source=.");
+			//});
 
 			//services.AddDbContext<Data.DatabaseContext>(options =>
 			//{
 			//	options.UseSqlServer
 			//	(connectionString: Configuration.GetSection(key: "ConnectionStrings").GetSection(key: "MyConnectionStringName");
 			//});
+
+			//services.AddTransient<Data.IUnitOfWork, Data.UnitOfWork>();
+
+			services.AddTransient<Data.IUnitOfWork, Data.UnitOfWork>(sp =>
+			{
+				Data.Tools.Options options =
+					new Data.Tools.Options
+					{
+						InMemoryDatabase = false,
+						ConnectionString = "Password=1234512345;Persist Security Info=True;User ID=SA;Initial Catalog=DtxSecurity;Data Source=.",
+					};
+
+				return new Data.UnitOfWork(options: options);
+			});
 		}
 
 		public void Configure

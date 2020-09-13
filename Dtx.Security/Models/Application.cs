@@ -2,11 +2,18 @@
 {
 	public class Application : Base.ExtraExtendedEntity
 	{
-		public Application()
+		public Application() : base()
 		{
 		}
 
 		// **********
+		//[System.ComponentModel.DataAnnotations.Display
+		//	(Name = "IP Restricted")]
+
+		//[System.ComponentModel.DataAnnotations.Display
+		//	(ResourceType = typeof(Resources.DataDictionary),
+		//	Name = "IsIPRestricted")]
+
 		[System.ComponentModel.DataAnnotations.Display
 			(ResourceType = typeof(Resources.DataDictionary),
 			Name = nameof(Resources.DataDictionary.IsIPRestricted))]

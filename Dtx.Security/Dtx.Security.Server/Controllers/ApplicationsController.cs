@@ -1,74 +1,21 @@
-﻿using System.Linq;
-using Microsoft.EntityFrameworkCore;
-
-namespace Dtx.Security.Server.Controllers
+﻿namespace Dtx.Security.Server.Controllers
 {
-	//[Microsoft.AspNetCore.Mvc.Route("applications")]
 	[Microsoft.AspNetCore.Mvc.Route("[controller]")]
-	//[Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
-	//[Microsoft.AspNetCore.Mvc.Route("api/applications")]
-	//[Microsoft.AspNetCore.Mvc.Route("crm/[controller]")]
-	//[Microsoft.AspNetCore.Mvc.Route(RouterConstants.Crm + "/[controller]")]
-	//public class ApplicationsController : Microsoft.AspNetCore.Mvc.Controller
-	//public class ApplicationsController : Microsoft.AspNetCore.Mvc.ControllerBase
 	public class ApplicationsController : Infrastructure.BaseApiControllerWithDatabase
 	{
-		public ApplicationsController(Data.DatabaseContext databaseContext) : base(databaseContext)
+		public ApplicationsController(Data.IUnitOfWork unitOfWork) : base(unitOfWork)
 		{
 		}
 
-		//[Microsoft.AspNetCore.Mvc.HttpGet]
-		//public System.Collections.Generic.IEnumerable<Models.Application>
-		//	Get()
-		//{
-		//	var result =
-		//		MyDatabaseContext.Applications
-		//		.ToList()
-		//		;
-
-		//	return result;
-		//}
-
-		//[Microsoft.AspNetCore.Mvc.HttpGet]
-		//public Microsoft.AspNetCore.Mvc.IActionResult
-		//	Get()
-		//{
-		//	var result =
-		//		MyDatabaseContext.Applications
-		//		.ToList()
-		//		;
-
-		//	return Ok(value: result);
-		//}
-
-		//[Microsoft.AspNetCore.Mvc.HttpGet]
-		//public Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.IEnumerable<Models.Application>>
-		//	Get()
-		//{
-		//	var result =
-		//		MyDatabaseContext.Applications
-		//		.ToList()
-		//		;
-
-		//	//return Ok(value: result);
-		//	// Compile OK - Runtime Error!
-		//	return Ok(value: new Models.User());
-		//}
-
 		[Microsoft.AspNetCore.Mvc.HttpGet]
-		public async System.Threading.Tasks.Task
+		public
+			async
+			System.Threading.Tasks.Task
 			<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.IEnumerable<Models.Application>>>
 			GetAsync()
 		{
-			//var result =
-			//	MyDatabaseContext.Applications
-			//	.ToListAsync().Result
-			//	;
-
 			var result =
-				await MyDatabaseContext.Applications
-				.ToListAsync()
-				;
+				await UnitOfWork.ApplicationRepository.GetAllAsync();
 
 			return Ok(value: result);
 		}
@@ -79,9 +26,7 @@ namespace Dtx.Security.Server.Controllers
 			GetAsync(System.Guid id)
 		{
 			var foundedEntity =
-				await MyDatabaseContext.Applications
-				.Where(current => current.Id == id)
-				.FirstOrDefaultAsync();
+				await UnitOfWork.ApplicationRepository.GetByIdAsync(id);
 
 			return Ok(value: foundedEntity);
 		}
@@ -106,9 +51,9 @@ namespace Dtx.Security.Server.Controllers
 					//VerifyDateTime = Models.Utility.Now,
 				};
 
-			await MyDatabaseContext.Applications.AddAsync(newEntity);
+			await UnitOfWork.ApplicationRepository.InsertAsync(newEntity);
 
-			await MyDatabaseContext.SaveChangesAsync();
+			await UnitOfWork.SaveAsync();
 
 			return Ok(value: newEntity);
 		}

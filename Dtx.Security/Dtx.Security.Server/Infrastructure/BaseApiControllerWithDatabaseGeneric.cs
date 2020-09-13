@@ -1,11 +1,8 @@
-﻿using System.Linq;
-using Microsoft.EntityFrameworkCore;
-
-namespace Infrastructure
+﻿namespace Infrastructure
 {
 	public class BaseApiControllerWithDatabaseGeneric<T> : BaseApiControllerWithDatabase where T : Models.Base.Entity
 	{
-		public BaseApiControllerWithDatabaseGeneric(Data.DatabaseContext databaseContext) : base(databaseContext)
+		public BaseApiControllerWithDatabaseGeneric(Data.IUnitOfWork unitOfWork) : base(unitOfWork)
 		{
 		}
 
@@ -15,8 +12,9 @@ namespace Infrastructure
 			GetAsync()
 		{
 			var result =
-				await MyDatabaseContext.Set<T>()
-				.ToListAsync()
+				await
+				UnitOfWork.GetRepository<T>()
+				.GetAllAsync()
 				;
 
 			return Ok(value: result);
@@ -28,9 +26,9 @@ namespace Infrastructure
 			GetAsync(System.Guid id)
 		{
 			var foundedEntity =
-				await MyDatabaseContext.Set<T>()
-				.Where(current => current.Id == id)
-				.FirstOrDefaultAsync();
+				await
+				UnitOfWork.GetRepository<T>()
+				.GetByIdAsync(id);
 
 			return Ok(value: foundedEntity);
 		}
@@ -40,9 +38,9 @@ namespace Infrastructure
 			<Microsoft.AspNetCore.Mvc.ActionResult<T>>
 			PostAsync(T entity)
 		{
-			await MyDatabaseContext.AddAsync<T>(entity);
+			await UnitOfWork.GetRepository<T>().InsertAsync(entity);
 
-			await MyDatabaseContext.SaveChangesAsync();
+			await UnitOfWork.SaveAsync();
 
 			return Ok(value: entity);
 		}

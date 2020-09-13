@@ -2,26 +2,11 @@
 {
 	public class BaseApiControllerWithDatabase : BaseApiController
 	{
-		public BaseApiControllerWithDatabase(Data.DatabaseContext databaseContext) : base()
+		public BaseApiControllerWithDatabase(Data.IUnitOfWork unitOfWork) : base()
 		{
-			MyDatabaseContext = databaseContext;
+			UnitOfWork = unitOfWork;
 		}
 
-		protected Data.DatabaseContext MyDatabaseContext { get; }
-
-		//public BaseApiControllerWithDatabase(Data.DatabaseContext databaseContext) : base()
-		//{
-		//	_myDatabaseContext = databaseContext;
-		//}
-
-		//private readonly Data.DatabaseContext _myDatabaseContext;
-
-		//protected Data.DatabaseContext MyDatabaseContext
-		//{
-		//	get
-		//	{
-		//		return _myDatabaseContext;
-		//	}
-		//}
+		protected Data.IUnitOfWork UnitOfWork { get; }
 	}
 }

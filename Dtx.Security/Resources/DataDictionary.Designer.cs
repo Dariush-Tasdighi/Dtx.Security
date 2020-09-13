@@ -322,6 +322,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ordering.
+        /// </summary>
+        public static string Ordering {
+            get {
+                return ResourceManager.GetString("Ordering", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Output Parameters.
         /// </summary>
         public static string OutputParameters {

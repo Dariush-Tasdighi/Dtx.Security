@@ -2,7 +2,7 @@
 {
 	public class UserValidIP : Base.ExtraExtendedEntity
 	{
-		public UserValidIP()
+		public UserValidIP() : base()
 		{
 		}
 

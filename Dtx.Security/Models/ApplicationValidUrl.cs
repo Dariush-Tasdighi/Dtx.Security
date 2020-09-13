@@ -2,7 +2,7 @@
 {
 	public class ApplicationValidUrl : Base.ExtraExtendedEntity
 	{
-		public ApplicationValidUrl()
+		public ApplicationValidUrl() : base()
 		{
 		}
 

@@ -2,7 +2,7 @@
 {
 	public class UserPasswordHistory : Base.Entity
 	{
-		public UserPasswordHistory()
+		public UserPasswordHistory() : base()
 		{
 		}
 
