@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Dtx.Security.Server
@@ -25,7 +24,7 @@ namespace Dtx.Security.Server
 					builder =>
 					{
 						builder
-							.WithOrigins("http://localhost:1202")
+							.WithOrigins("http://localhost:1220")
 							.AllowAnyHeader()
 							.AllowAnyMethod()
 							//.AllowCredentials()

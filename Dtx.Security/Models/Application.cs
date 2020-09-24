@@ -32,6 +32,22 @@
 			(ResourceType = typeof(Resources.DataDictionary),
 			Name = nameof(Resources.DataDictionary.Name))]
 
+		//[System.ComponentModel.DataAnnotations.Required
+		//	(AllowEmptyStrings = false)]
+
+		//[System.ComponentModel.DataAnnotations.Required
+		//	(AllowEmptyStrings = false,
+		//	ErrorMessage = "You did not specify Name!")]
+
+		//[System.ComponentModel.DataAnnotations.Required
+		//	(AllowEmptyStrings = false,
+		//	ErrorMessage = "You did not specify {0}!")]
+
+		//[System.ComponentModel.DataAnnotations.Required
+		//	(AllowEmptyStrings = false,
+		//	ErrorMessageResourceType = typeof(Resources.ErrorMessages),
+		//	ErrorMessageResourceName = "Required")]
+
 		[System.ComponentModel.DataAnnotations.Required
 			(AllowEmptyStrings = false,
 			ErrorMessageResourceType = typeof(Resources.ErrorMessages),

@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Linq;
+﻿using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Data
 {
-	public class UserRepository : Base.Repository<Models.User>, IUserRepository
+	public class UserRepository : Repository<Models.User>, IUserRepository
 	{
 		internal UserRepository(DatabaseContext databaseContext) : base(databaseContext)
 		{

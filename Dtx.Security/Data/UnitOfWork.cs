@@ -2,6 +2,10 @@
 {
 	public class UnitOfWork : Base.UnitOfWork, IUnitOfWork
 	{
+		//public UnitOfWork() : base()
+		//{
+		//}
+
 		public UnitOfWork(Tools.Options options) : base(options)
 		{
 		}
