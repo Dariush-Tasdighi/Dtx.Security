@@ -55,6 +55,11 @@
 			System.Exception exception = null,
 			System.Collections.Hashtable parameters = null)
 		{
+			if (string.IsNullOrWhiteSpace(message))
+			{
+				return;
+			}
+
 			// **************************************************
 			string currentCultureName =
 				System.Threading.Thread.CurrentThread.CurrentCulture.Name;
