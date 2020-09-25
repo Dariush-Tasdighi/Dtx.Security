@@ -2,13 +2,6 @@
 //{
 //	public class BaseApiControllerWithDatabase : BaseApiController
 //	{
-//		public BaseApiControllerWithDatabase(Data.DatabaseContext databaseContext) : base()
-//		{
-//			MyDatabaseContext = databaseContext;
-//		}
-
-//		protected Data.DatabaseContext MyDatabaseContext { get; }
-
 //		//public BaseApiControllerWithDatabase(Data.DatabaseContext databaseContext) : base()
 //		//{
 //		//	_myDatabaseContext = databaseContext;
@@ -23,5 +16,12 @@
 //		//		return _myDatabaseContext;
 //		//	}
 //		//}
+
+//		public BaseApiControllerWithDatabase(Data.DatabaseContext databaseContext) : base()
+//		{
+//			MyDatabaseContext = databaseContext;
+//		}
+
+//		protected Data.DatabaseContext MyDatabaseContext { get; }
 //	}
 //}

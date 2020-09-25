@@ -1,6 +1,5 @@
 ﻿namespace Dtx.Security.Server.Controllers
 {
-	[Microsoft.AspNetCore.Mvc.Route("[controller]")]
 	public class ApplicationsController : Infrastructure.BaseApiControllerWithDatabase
 	{
 		public ApplicationsController(Data.IUnitOfWork unitOfWork) : base(unitOfWork)
@@ -21,7 +20,9 @@
 		}
 
 		[Microsoft.AspNetCore.Mvc.HttpGet(template: "{0}")]
-		public async System.Threading.Tasks.Task
+		public
+			async
+			System.Threading.Tasks.Task
 			<Microsoft.AspNetCore.Mvc.ActionResult<Models.Application>>
 			GetAsync(System.Guid id)
 		{
@@ -32,7 +33,9 @@
 		}
 
 		[Microsoft.AspNetCore.Mvc.HttpPost]
-		public async System.Threading.Tasks.Task
+		public
+			async
+			System.Threading.Tasks.Task
 			<Microsoft.AspNetCore.Mvc.ActionResult<Models.Application>>
 			PostAsync(ViewModels.Applications.CreateViewModel viewModel)
 		{

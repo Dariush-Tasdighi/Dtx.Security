@@ -18,6 +18,7 @@ namespace Dtx.Security.Server
 		public void ConfigureServices
 			(Microsoft.Extensions.DependencyInjection.IServiceCollection services)
 		{
+			// Cross-Origin Resource Sharing (CORS)
 			services.AddCors(options =>
 			{
 				options.AddPolicy(AdminCorsPolicy,
@@ -54,13 +55,13 @@ namespace Dtx.Security.Server
 			//services.AddDbContext<Data.DatabaseContext>(options =>
 			//{
 			//	options.UseSqlServer
-			//	(connectionString: "Password=1234512345;Persist Security Info=True;User ID=SA;Initial Catalog=DtxSecurity;Data Source=.");
+			//		(connectionString: "Password=1234512345;Persist Security Info=True;User ID=SA;Initial Catalog=DtxSecurity;Data Source=.");
 			//});
 
 			//services.AddDbContext<Data.DatabaseContext>(options =>
 			//{
 			//	options.UseSqlServer
-			//	(connectionString: Configuration.GetSection(key: "ConnectionStrings").GetSection(key: "MyConnectionStringName");
+			//		(connectionString: Configuration.GetSection(key: "ConnectionStrings").GetSection(key: "MyConnectionStringName");
 			//});
 
 			//services.AddTransient<Data.IUnitOfWork, Data.UnitOfWork>();

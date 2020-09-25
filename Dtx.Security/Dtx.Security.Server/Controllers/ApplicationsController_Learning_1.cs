@@ -56,7 +56,9 @@
 //		//}
 
 //		[Microsoft.AspNetCore.Mvc.HttpGet]
-//		public async System.Threading.Tasks.Task
+//		public
+//			async
+//			System.Threading.Tasks.Task
 //			<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.IEnumerable<Models.Application>>>
 //			GetAsync()
 //		{
