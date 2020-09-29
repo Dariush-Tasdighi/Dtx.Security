@@ -210,11 +210,17 @@
   <data name="OutputParameters" xml:space="preserve">
     <value>Output Parameters</value>
   </data>
+  <data name="Owner" xml:space="preserve">
+    <value>Owner</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
   <data name="Path" xml:space="preserve">
     <value>Path</value>
+  </data>
+  <data name="Programmer" xml:space="preserve">
+    <value>Programmer</value>
   </data>
   <data name="RegisterIP" xml:space="preserve">
     <value>Register IP</value>
@@ -224,6 +230,9 @@
   </data>
   <data name="RequestType" xml:space="preserve">
     <value>Request Type</value>
+  </data>
+  <data name="SuperUser" xml:space="preserve">
+    <value>Super User</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Title</value>

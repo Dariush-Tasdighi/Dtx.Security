@@ -61,7 +61,7 @@ namespace Dtx.Security.Server
 			//services.AddDbContext<Data.DatabaseContext>(options =>
 			//{
 			//	options.UseSqlServer
-			//		(connectionString: Configuration.GetSection(key: "ConnectionStrings").GetSection(key: "MyConnectionStringName");
+			//		(connectionString: Configuration.GetSection(key: "ConnectionStrings").GetSection(key: "MyConnectionString");
 			//});
 
 			//services.AddTransient<Data.IUnitOfWork, Data.UnitOfWork>();
@@ -72,7 +72,8 @@ namespace Dtx.Security.Server
 					new Data.Tools.Options
 					{
 						InMemoryDatabase = false,
-						ConnectionString = "Password=1234512345;Persist Security Info=True;User ID=SA;Initial Catalog=DtxSecurity;Data Source=.",
+						ConnectionString =
+							Configuration.GetSection(key: "ConnectionStrings").GetSection(key: "MyConnectionString").Value,
 					};
 
 				return new Data.UnitOfWork(options: options);

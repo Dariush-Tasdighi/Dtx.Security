@@ -87,7 +87,8 @@
 		public Microsoft.EntityFrameworkCore.DbSet<Models.UserPasswordHistory> UserPasswordHistories { get; set; }
 		// **********
 
-		protected override void OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
+		protected override void OnModelCreating
+			(Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
 

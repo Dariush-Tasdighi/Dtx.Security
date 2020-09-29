@@ -340,6 +340,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Owner.
+        /// </summary>
+        public static string Owner {
+            get {
+                return ResourceManager.GetString("Owner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string Password {
@@ -354,6 +363,15 @@ namespace Resources {
         public static string Path {
             get {
                 return ResourceManager.GetString("Path", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Programmer.
+        /// </summary>
+        public static string Programmer {
+            get {
+                return ResourceManager.GetString("Programmer", resourceCulture);
             }
         }
         
@@ -381,6 +399,15 @@ namespace Resources {
         public static string RequestType {
             get {
                 return ResourceManager.GetString("RequestType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Super User.
+        /// </summary>
+        public static string SuperUser {
+            get {
+                return ResourceManager.GetString("SuperUser", resourceCulture);
             }
         }
         

@@ -1,4 +1,5 @@
-﻿namespace Infrastructure
+﻿//namespace Dtx.Security.Server.Infrastructure
+namespace Infrastructure
 {
 	[Microsoft.AspNetCore.Mvc.ApiController]
 	[Microsoft.AspNetCore.Mvc.Route("[controller]")]

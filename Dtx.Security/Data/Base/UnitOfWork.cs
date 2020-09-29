@@ -1,5 +1,6 @@
 ﻿using Data.Tools;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace Data.Base
 {
@@ -37,7 +38,26 @@ namespace Data.Base
 					var optionsBuilder =
 						new DbContextOptionsBuilder<DatabaseContext>();
 
-					if(Options.InMemoryDatabase)
+					//switch(Options.Provider)
+					//{
+					//	case Provider.SqlServer:
+					//	{
+					//		optionsBuilder.UseSqlServer
+					//			(connectionString: Options.ConnectionString);
+
+					//		break;
+					//	}
+
+					//	case Provider.MySql:
+					//	{
+					//		optionsBuilder.UseMySql
+					//			(connectionString: Options.ConnectionString);
+
+					//		break;
+					//	}
+					//}
+
+					if (Options.InMemoryDatabase)
 					{
 						//optionsBuilder.UseInMemoryDatabase<DatabaseContext>();
 					}
