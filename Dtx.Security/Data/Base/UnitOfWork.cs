@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Data.Tools;
+using Microsoft.EntityFrameworkCore;
 
 namespace Data.Base
 {
@@ -14,7 +15,7 @@ namespace Data.Base
 		}
 
 		// **********
-		public Tools.Options Options { get; set; }
+		protected Tools.Options Options { get; set; }
 		// **********
 
 		// **********
@@ -36,7 +37,14 @@ namespace Data.Base
 					var optionsBuilder =
 						new DbContextOptionsBuilder<DatabaseContext>();
 
-					optionsBuilder.UseSqlServer(connectionString: Options.ConnectionString);
+					if(Options.InMemoryDatabase)
+					{
+						//optionsBuilder.UseInMemoryDatabase<DatabaseContext>();
+					}
+					else
+					{
+						optionsBuilder.UseSqlServer(connectionString: Options.ConnectionString);
+					}
 
 					_databaseContext =
 						new DatabaseContext(options: optionsBuilder.Options);
@@ -68,7 +76,7 @@ namespace Data.Base
 		/// <summary>
 		/// To detect redundant calls
 		/// </summary>
-		public bool IsDisposed { get; private set; }
+		public bool IsDisposed { get; protected set; }
 		// **********
 
 		/// <summary>

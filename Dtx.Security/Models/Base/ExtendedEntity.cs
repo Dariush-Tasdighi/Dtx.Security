@@ -1,6 +1,6 @@
 ﻿namespace Models.Base
 {
-	public class ExtendedEntity : Entity
+	public abstract class ExtendedEntity : Entity
 	{
 		public ExtendedEntity() : base()
 		{

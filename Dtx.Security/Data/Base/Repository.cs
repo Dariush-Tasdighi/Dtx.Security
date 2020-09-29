@@ -11,6 +11,16 @@ namespace Data.Base
 			// **************************************************
 			//if (databaseContext == null)
 			//{
+			//	throw new System.ArgumentNullException(paramName: "databaseContext");
+			//	throw new System.ArgumentNullException(paramName: "databaseContextSouti");
+			//}
+
+			//DatabaseContext = databaseContext;
+			// **************************************************
+
+			// **************************************************
+			//if (databaseContext == null)
+			//{
 			//	throw new System.ArgumentNullException(paramName: nameof(databaseContext));
 			//}
 
@@ -26,7 +36,8 @@ namespace Data.Base
 		}
 
 		// **********
-		internal DatabaseContext DatabaseContext { get; set; }
+		internal DatabaseContext DatabaseContext { get; }
+		//internal DatabaseContext DatabaseContext { get; set; }
 		// **********
 
 		// **********
@@ -95,6 +106,8 @@ namespace Data.Base
 			{
 				throw new System.ArgumentNullException(paramName: nameof(entity));
 			}
+
+			//DbSet.Update(entity);
 
 			await System.Threading.Tasks.Task.Run(() =>
 			{
