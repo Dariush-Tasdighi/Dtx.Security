@@ -9,87 +9,93 @@
 	<a href="/application/create" class="btn btn-primary">Create</a>
 </div>
 
-@if (Collection == null)
+@if (List == null)
 {
 	<div>Loading...</div>
 }
 else
 {
-	<div class="table-responsive">
-		<table class="table table-striped table-bordered table-hover table-sm">
+	<div class="row">
+		<div class="col-12 table-responsive">
+			<table class="table table-bordered table-striped table-hover table-sm">
 
-			<caption>List of Applications</caption>
+				<caption>List of Applications</caption>
 
-			<thead class="thead-light">
-				<tr>
-					<th scope="col">
-						#
-					</th>
-					<th scope="col">
-						@(Resources.DataDictionary.Name)
-					</th>
-					<th scope="col">
-						@(Resources.DataDictionary.Title)
-					</th>
-					<th scope="col">
-						@(Resources.DataDictionary.IsActive)
-					</th>
-					<th scope="col">
-						@(Resources.DataDictionary.IsVerified)
-					</th>
-					<th scope="col">
-						@(Resources.DataDictionary.IsIPRestricted)
-					</th>
-					<th scope="col">
-						@(Resources.DataDictionary.IsUrlRestricted)
-					</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				@for (int index = 0; index < Collection.Count; index++)
-				{
-					var entity = Collection[index];
-
+				<thead class="thead-light">
 					<tr>
-						<th scope="row">
-							@(index + 1)
+						<th scope="col">
+							#
 						</th>
-						<td>
-							@(entity.Name)
-						</td>
-						<td>
-							@(entity.Title)
-						</td>
-						<td>
-							<DtxDisabledCheckBox Value="entity.IsActive" />
-						</td>
-						<td>
-							<DtxDisabledCheckBox Value="entity.IsVerified" />
-						</td>
-						<td>
-							<DtxDisabledCheckBox Value="entity.IsIPRestricted" />
-						</td>
-						<td>
-							<DtxDisabledCheckBox Value="entity.IsUrlRestricted" />
-						</td>
+						<th scope="col">
+							@(Resources.DataDictionary.Name)
+						</th>
+						<th scope="col">
+							@(Resources.DataDictionary.Title)
+						</th>
+						<th scope="col">
+							@(Resources.DataDictionary.IsActive)
+						</th>
+						<th scope="col">
+							@(Resources.DataDictionary.IsVerified)
+						</th>
+						<th scope="col">
+							@(Resources.DataDictionary.IsIPRestricted)
+						</th>
+						<th scope="col">
+							@(Resources.DataDictionary.IsUrlRestricted)
+						</th>
 					</tr>
-				}
-			</tbody>
+				</thead>
 
-		</table>
+				<tbody>
+					@for (int index = 0; index <= List.Count - 1; index++)
+					{
+						var entity = List[index];
+
+						<tr>
+							<th scope="row">
+								@(index + 1)
+							</th>
+							<td>
+								@(entity.Name)
+							</td>
+							<td>
+								@(entity.Title)
+							</td>
+							<td>
+								<DtxDisabledCheckBox Value="entity.IsActive" />
+							</td>
+							<td>
+								<DtxDisabledCheckBox Value="entity.IsVerified" />
+							</td>
+							<td>
+								<DtxDisabledCheckBox Value="entity.IsIPRestricted" />
+							</td>
+							<td>
+								<DtxDisabledCheckBox Value="entity.IsUrlRestricted" />
+							</td>
+						</tr>
+					}
+				</tbody>
+
+			</table>
+		</div>
 	</div>
 }
 
 @code
 {
 
-	protected override async Task OnInitializedAsync()
+	protected override
+		async
+		Task
+		OnInitializedAsync()
 	{
-		Collection =
-			await applicationService.GetAsync();
+		List =
+			await
+			applicationService.GetAsync();
 	}
 
-	public System.Collections.Generic.IList<Models.Application> Collection { get; set; }
+	public System.Collections.Generic.IList<Models.Application> List { get; set; }
 
 }

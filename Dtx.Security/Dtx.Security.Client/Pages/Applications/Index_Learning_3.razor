@@ -1,0 +1,67 @@
+﻿@page "/applications/index_learning_3"
+@inject Services.ApplicationService applicationService
+
+<h3>
+	Index
+</h3>
+
+<div>
+	<a href="/application/create" class="btn btn-primary">Create</a>
+</div>
+
+@if (List == null)
+{
+	<div>Loading...</div>
+}
+else
+{
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>
+						#
+					</th>
+					<th>
+						@(Resources.DataDictionary.Name)
+					</th>
+					<th>
+						@(Resources.DataDictionary.IsActive)
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (int index = 0; index < List.Count; index++)
+				{
+					var entity = List[index];
+
+					<tr>
+						<td>
+							@(index + 1)
+						</td>
+						<td>
+							@(entity.Name)
+						</td>
+						<td>
+							<DtxDisabledCheckBox Value="entity.IsActive" />
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+}
+
+@code
+{
+
+	protected override async Task OnInitializedAsync()
+	{
+		List =
+			await
+			applicationService.GetAsync();
+	}
+
+	public System.Collections.Generic.IList<Models.Application> List { get; set; }
+
+}

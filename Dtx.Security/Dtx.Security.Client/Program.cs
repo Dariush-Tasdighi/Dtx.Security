@@ -1,4 +1,4 @@
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace Dtx.Security.Client
 {
@@ -16,13 +16,21 @@ namespace Dtx.Security.Client
 
 			builder.RootComponents.Add<App>("app");
 
+			//builder.Services.AddScoped<System.Net.Http.HttpClient>();
+
+			//builder.Services.AddScoped(System.Net.Http.HttpClient);
+
 			builder.Services.AddScoped
 				(sp => new System.Net.Http.HttpClient
 				{
 					BaseAddress = new System.Uri(builder.HostEnvironment.BaseAddress)
 				});
 
-			builder.Services.AddTransient<Services.ApplicationService>();
+			builder.Services.AddScoped<Services.ApplicationService>();
+			//builder.Services.AddTransient<Services.ApplicationService>();
+
+			// دستور ذیل کار نمی‌کند
+			//builder.Services.AddSingleton<Services.ApplicationService>();
 
 			await builder.Build().RunAsync();
 		}

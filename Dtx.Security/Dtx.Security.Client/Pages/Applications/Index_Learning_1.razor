@@ -1,0 +1,124 @@
+﻿@page "/applications/index_learning_1"
+
+<h3>
+	Index
+</h3>
+
+<div>
+	<a href="/application/create" class="btn btn-primary">Create</a>
+</div>
+
+@if (List == null)
+{
+	<div>Loading...</div>
+}
+else
+{
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>
+						#
+					</th>
+					<th>
+						@*نام*@
+						@*Name*@
+						@(Resources.DataDictionary.Name)
+					</th>
+					<th>
+						@(Resources.DataDictionary.IsActive)
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for (int index = 0; index <= List.Count - 1; index++)
+				{
+					var entity = List[index];
+
+					<tr>
+						<td>
+							@(index + 1)
+						</td>
+						<td>
+							@(entity.Name)
+						</td>
+						<td>
+							@*@(entity.IsActive)*@
+							<DtxDisabledCheckBox Value="entity.IsActive" />
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+}
+
+@code {
+	//protected override void OnInitialized()
+	//{
+	//	base.OnInitialized();
+
+	//	List =
+	//		new List<Models.Application>();
+
+	//	for (int index = 1; index <= 100; index++)
+	//	{
+	//		var entity =
+	//			new Models.Application
+	//			{
+	//				Name = $"Name { index }",
+	//				IsActive = index % 2 == 0,
+	//			};
+
+	//		List.Add(entity);
+	//	}
+	//}
+
+	//protected override void OnInitialized()
+	//{
+	//	base.OnInitialized();
+
+	//	System.Threading.Thread.Sleep(5000);
+
+	//	List =
+	//		new List<Models.Application>();
+
+	//	for (int index = 1; index <= 100; index++)
+	//	{
+	//		var entity =
+	//			new Models.Application
+	//			{
+	//				Name = $"Name { index }",
+	//				IsActive = index % 2 == 0,
+	//			};
+
+	//		List.Add(entity);
+	//	}
+	//}
+
+	protected override Task OnInitializedAsync()
+	{
+		System.Threading.Thread.Sleep(5000);
+
+		List =
+			new List<Models.Application>();
+
+		for (int index = 1; index <= 100; index++)
+		{
+			var entity =
+				new Models.Application
+				{
+					Name = $"Name { index }",
+					IsActive = index % 2 == 0,
+				};
+
+			List.Add(entity);
+		}
+
+		return base.OnInitializedAsync();
+	}
+
+	public System.Collections.Generic.List<Models.Application> List { get; set; }
+
+}

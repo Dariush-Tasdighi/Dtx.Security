@@ -13,6 +13,8 @@
 			<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.IEnumerable<Models.Application>>>
 			GetAsync()
 		{
+			System.Threading.Thread.Sleep(2000);
+
 			var result =
 				await UnitOfWork.ApplicationRepository.GetAllAsync();
 

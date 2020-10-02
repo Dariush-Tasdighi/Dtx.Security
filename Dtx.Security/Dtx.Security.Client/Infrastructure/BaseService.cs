@@ -1,10 +1,12 @@
-﻿using System.Net.Http.Json;
+﻿//using System.Net.Http.Json;
+
+using System.Net.Http.Json;
 
 namespace Infrastructure
 {
 	public abstract class BaseService : object
 	{
-		public BaseService(System.Net.Http.HttpClient client) : base()
+		public BaseService(System.Net.Http.HttpClient http) : base()
 		{
 			JsonOptions =
 				new System.Text.Json.JsonSerializerOptions
@@ -12,7 +14,7 @@ namespace Infrastructure
 					PropertyNameCaseInsensitive = true,
 				};
 
-			Client = client;
+			Http = http;
 			//Client.DefaultRequestHeaders
 
 			BaseUrl = "http://localhost:5086";
@@ -25,18 +27,22 @@ namespace Infrastructure
 
 		protected string RequestUri { get; set; }
 
-		protected System.Net.Http.HttpClient Client { get; set; }
+		protected System.Net.Http.HttpClient Http { get; set; }
 
 		protected System.Text.Json.JsonSerializerOptions JsonOptions { get; set; }
 
-		protected virtual async System.Threading.Tasks.Task<O> GetAsync<O>()
+		protected virtual
+			async
+			System.Threading.Tasks.Task<O>
+			GetAsync<O>()
 		{
 			System.Net.Http.HttpResponseMessage response = null;
 
 			try
 			{
 				response =
-					await Client.GetAsync(requestUri: RequestUri);
+					await
+					Http.GetAsync(requestUri: RequestUri);
 
 				response.EnsureSuccessStatusCode();
 
@@ -73,14 +79,17 @@ namespace Infrastructure
 			return default;
 		}
 
-		protected virtual async System.Threading.Tasks.Task<O> PostAsync<I, O>(I viewModel)
+		protected virtual
+			async
+			System.Threading.Tasks.Task<O>
+			PostAsync<I, O>(I viewModel)
 		{
 			System.Net.Http.HttpResponseMessage response = null;
 
 			try
 			{
 				response =
-					await Client.PostAsJsonAsync
+					await Http.PostAsJsonAsync
 					(requestUri: RequestUri, value: viewModel);
 
 				response.EnsureSuccessStatusCode();
@@ -140,14 +149,17 @@ namespace Infrastructure
 			return default;
 		}
 
-		protected virtual async System.Threading.Tasks.Task<O> PutAsync<I, O>(I viewModel)
+		protected virtual
+			async
+			System.Threading.Tasks.Task<O>
+			PutAsync<I, O>(I viewModel)
 		{
 			System.Net.Http.HttpResponseMessage response = null;
 
 			try
 			{
 				response =
-					await Client.PutAsJsonAsync
+					await Http.PutAsJsonAsync
 					(requestUri: RequestUri, value: viewModel);
 
 				response.EnsureSuccessStatusCode();
@@ -185,14 +197,17 @@ namespace Infrastructure
 			return default;
 		}
 
-		protected virtual async System.Threading.Tasks.Task<O> DeleteAsync<O>()
+		protected virtual
+			async
+			System.Threading.Tasks.Task<O>
+			DeleteAsync<O>()
 		{
 			System.Net.Http.HttpResponseMessage response = null;
 
 			try
 			{
 				response =
-					await Client.DeleteAsync(requestUri: RequestUri);
+					await Http.DeleteAsync(requestUri: RequestUri);
 
 				response.EnsureSuccessStatusCode();
 
