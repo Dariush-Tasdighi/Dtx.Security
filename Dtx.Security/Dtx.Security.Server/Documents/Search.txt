@@ -1,0 +1,110 @@
+﻿Full Name: ___________
+Age: From: ___ To: ___
+
+[Search]
+
+Client -> SearchViewModel -> FullName, AgeFrom, AgeTo
+
+1 Field -> 2 States
+
+                                  2
+2 Fields -> 2(0) + 2(1) + (2)2 = 2  = 4
+
+             3
+3 Fields -> 2  = 8
+
+              10
+10 Fields -> 2   = 1024
+
+فاجعه
+
+SQL:
+
+string sql = "SELECT * FROM Users"
+
+if(string.IsNullOrWhiteSpace(viewModel.FullName) == false)
+{
+    sql += "WHERE FullName LIKE ...";
+}
+
+-----------------------------------------------------------
+
+Entity Framework (Core):
+
+شاهکار
+
+-----------------------------------------------------------
+
+Data -> UserRepository:
+
+    IList<Models.User> Search(ViewModels.SearchViewModel viewModel)
+
+var data =
+    DatabaseContext.Users
+    ToList()
+    ; // این کار را انجام نمی‌دهیم
+
+var data =
+    DatabaseContext.Users
+    .Where(current => current.IsActive)
+    ;
+
+Convert -> IQueryable
+
+var data =
+    DatabaseContext.Users
+    .Where(current => 1 == 1)
+    ;
+
+Convert -> IQueryable
+
+var data =
+    DatabaseContext.Users
+    .AsQueryable()
+    ;
+
+if(string.IsNullOrEmpty(viewModel.fullName) == false)
+{
+    data =
+        data
+        .Where(current => current.FullName.ToLower().Contains(viewModel.fullName.ToLower()))
+        ;
+}
+
+if(string.IsNullOrEmpty(viewModel.AgeFrom) == false)
+{
+    data =
+        data
+        .Where(current => current.Age >= System.Convert.ToInt32(viewModel.AgeFrom))
+        ; // یک هفته گریه کردم
+
+    int ageFrom =
+        System.Convert.ToInt32(viewModel.AgeFrom);
+
+    data =
+        data
+        .Where(current => current.Age >= ageFrom)
+        ; // OK!
+}
+
+if(string.IsNullOrEmpty(viewModel.AgeTo) == false)
+{
+    int ageTo =
+        System.Convert.ToInt32(viewModel.AgeFrom);
+
+    data =
+        data
+        .Where(current => current.Age <= ageTo)
+        ;
+}
+
+data =
+    data
+    .OrderBy(current => current.FullName)
+    ;
+
+// data = data.ToList(); // Error!
+
+var result = data.ToList();
+
+return result;

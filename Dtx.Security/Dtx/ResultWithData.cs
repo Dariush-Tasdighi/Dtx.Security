@@ -1,8 +1,8 @@
 ﻿namespace Dtx
 {
-	public class ResultWithData<T> : Result
+	public class Result<T> : Result
 	{
-		public ResultWithData() : base()
+		public Result() : base()
 		{
 		}
 

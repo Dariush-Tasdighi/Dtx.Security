@@ -21,17 +21,57 @@
 			return Ok(value: result);
 		}
 
+		//[Microsoft.AspNetCore.Mvc.HttpGet(template: "{0}")]
+		//public
+		//	async
+		//	System.Threading.Tasks.Task
+		//	<Microsoft.AspNetCore.Mvc.ActionResult<Models.Application>>
+		//	GetAsync(System.Guid id)
+		//{
+		//	var foundedEntity =
+		//		await UnitOfWork.ApplicationRepository.GetByIdAsync(id);
+
+		//	return Ok(value: foundedEntity);
+		//}
+
 		[Microsoft.AspNetCore.Mvc.HttpGet(template: "{0}")]
 		public
 			async
 			System.Threading.Tasks.Task
-			<Microsoft.AspNetCore.Mvc.ActionResult<Models.Application>>
+			<Microsoft.AspNetCore.Mvc.ActionResult<Result<Models.Application>>>
 			GetAsync(System.Guid id)
 		{
+			Result<Models.Application> result = new Result<Models.Application>();
+
 			var foundedEntity =
 				await UnitOfWork.ApplicationRepository.GetByIdAsync(id);
 
-			return Ok(value: foundedEntity);
+			if (foundedEntity == null)
+			{
+				result.Data = null;
+				result.IsSuccessful = false;
+
+				result.AddErrorMessage
+					("اطلاعاتی با این مشخصه یافت نشد!");
+			}
+			else
+			{
+				if (foundedEntity.IsActive == false)
+				{
+					result.Data = null;
+					result.IsSuccessful = false;
+
+					result.AddErrorMessage
+						("دسترسی به این اطلاعات مقدور نمی‌باشد!");
+				}
+				else
+				{
+					result.Data = foundedEntity;
+					result.IsSuccessful = true;
+				}
+			}
+
+			return Ok(value: result);
 		}
 
 		[Microsoft.AspNetCore.Mvc.HttpPost]
