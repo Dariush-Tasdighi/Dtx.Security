@@ -71,7 +71,14 @@ namespace Dtx.Security.Server
 				Data.Tools.Options options =
 					new Data.Tools.Options
 					{
-						InMemoryDatabase = false,
+						Provider =
+							(Data.Tools.Enums.Provider)
+							System.Convert.ToInt32(Configuration.GetSection(key: "databaseProvider").Value),
+
+						//using Microsoft.EntityFrameworkCore;
+						//ConnectionString =
+						//	Configuration.GetConnectionString().GetSection(key: "MyConnectionString").Value,
+
 						ConnectionString =
 							Configuration.GetSection(key: "ConnectionStrings").GetSection(key: "MyConnectionString").Value,
 					};

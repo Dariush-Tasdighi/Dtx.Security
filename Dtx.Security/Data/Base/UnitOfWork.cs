@@ -38,33 +38,61 @@ namespace Data.Base
 					var optionsBuilder =
 						new DbContextOptionsBuilder<DatabaseContext>();
 
-					//switch(Options.Provider)
+					switch (Options.Provider)
+					{
+						case Tools.Enums.Provider.SqlServer:
+						{
+							optionsBuilder.UseSqlServer
+								(connectionString: Options.ConnectionString);
+
+							break;
+						}
+
+						case Tools.Enums.Provider.MySql:
+						{
+							//optionsBuilder.UseMySql
+							//	(connectionString: Options.ConnectionString);
+
+							break;
+						}
+
+						case Tools.Enums.Provider.Oracle:
+						{
+							//optionsBuilder.UseOracle
+							//	(connectionString: Options.ConnectionString);
+
+							break;
+						}
+
+						case Tools.Enums.Provider.PostgreSQL:
+						{
+							//optionsBuilder.UsePostgreSQL
+							//	(connectionString: Options.ConnectionString);
+
+							break;
+						}
+
+						case Tools.Enums.Provider.InMemory:
+						{
+							optionsBuilder.UseInMemoryDatabase(databaseName: "Temp");
+
+							break;
+						}
+
+						default:
+						{
+							break;
+						}
+					}
+
+					//if (Options.InMemoryDatabase)
 					//{
-					//	case Provider.SqlServer:
-					//	{
-					//		optionsBuilder.UseSqlServer
-					//			(connectionString: Options.ConnectionString);
-
-					//		break;
-					//	}
-
-					//	case Provider.MySql:
-					//	{
-					//		optionsBuilder.UseMySql
-					//			(connectionString: Options.ConnectionString);
-
-					//		break;
-					//	}
+					//	//optionsBuilder.UseInMemoryDatabase<DatabaseContext>();
 					//}
-
-					if (Options.InMemoryDatabase)
-					{
-						//optionsBuilder.UseInMemoryDatabase<DatabaseContext>();
-					}
-					else
-					{
-						optionsBuilder.UseSqlServer(connectionString: Options.ConnectionString);
-					}
+					//else
+					//{
+					//	optionsBuilder.UseSqlServer(connectionString: Options.ConnectionString);
+					//}
 
 					_databaseContext =
 						new DatabaseContext(options: optionsBuilder.Options);

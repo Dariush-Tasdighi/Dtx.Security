@@ -5,7 +5,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="NLog" Version="4.7.4" />
+		<PackageReference Include="NLog" Version="4.7.5" />
 		<PackageReference Include="NLog.Web.AspNetCore" Version="4.9.3" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
 	</ItemGroup>

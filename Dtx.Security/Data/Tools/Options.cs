@@ -7,8 +7,12 @@
 		}
 
 		// **********
-		public bool InMemoryDatabase { get; set; }
+		public Enums.Provider Provider { get; set; }
 		// **********
+
+		//// **********
+		//public bool InMemoryDatabase { get; set; }
+		//// **********
 
 		// **********
 		public string ConnectionString { get; set; }
