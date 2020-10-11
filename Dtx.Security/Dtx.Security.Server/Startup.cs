@@ -85,6 +85,8 @@ namespace Dtx.Security.Server
 
 				return new Data.UnitOfWork(options: options);
 			});
+
+			//services.AddTransient<Dtx.ILogger, Dtx.Logger>();
 		}
 
 		public void Configure

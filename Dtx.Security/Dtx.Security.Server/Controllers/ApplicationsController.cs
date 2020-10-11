@@ -43,35 +43,47 @@
 		{
 			Result<Models.Application> result = new Result<Models.Application>();
 
-			var foundedEntity =
-				await UnitOfWork.ApplicationRepository.GetByIdAsync(id);
-
-			if (foundedEntity == null)
+			try
 			{
-				result.Data = null;
-				result.IsSuccessful = false;
+				var foundedEntity =
+					await UnitOfWork.ApplicationRepository.GetByIdAsync(id);
 
-				result.AddErrorMessage
-					("اطلاعاتی با این مشخصه یافت نشد!");
-			}
-			else
-			{
-				if (foundedEntity.IsActive == false)
+				if (foundedEntity == null)
 				{
 					result.Data = null;
 					result.IsSuccessful = false;
 
 					result.AddErrorMessage
-						("دسترسی به این اطلاعات مقدور نمی‌باشد!");
+						("اطلاعاتی با این مشخصه یافت نشد!");
 				}
 				else
 				{
-					result.Data = foundedEntity;
-					result.IsSuccessful = true;
-				}
-			}
+					if (foundedEntity.IsActive == false)
+					{
+						result.Data = null;
+						result.IsSuccessful = false;
 
-			return Ok(value: result);
+						result.AddErrorMessage
+							("دسترسی به این اطلاعات مقدور نمی‌باشد!");
+					}
+					else
+					{
+						result.Data = foundedEntity;
+						result.IsSuccessful = true;
+					}
+				}
+
+				return Ok(value: result);
+			}
+			catch (System.Exception ex)
+			{
+				result.Data = null;
+				result.IsSuccessful = false;
+
+				result.AddErrorMessage(ex.Message);
+
+				return Ok(value: result);
+			}
 		}
 
 		[Microsoft.AspNetCore.Mvc.HttpPost]
@@ -81,26 +93,43 @@
 			<Microsoft.AspNetCore.Mvc.ActionResult<Models.Application>>
 			PostAsync(ViewModels.Applications.CreateViewModel viewModel)
 		{
-			var newEntity =
-				new Models.Application
-				{
-					Name = viewModel.Name,
-					Title = viewModel.Title,
-					IsActive = viewModel.IsActive,
-					Description = viewModel.Description,
-					IsIPRestricted = viewModel.IsIPRestricted,
-					IsUrlRestricted = viewModel.IsUrlRestricted,
+			try
+			{
+				var newEntity =
+					new Models.Application
+					{
+						Name = viewModel.Name,
+						Title = viewModel.Title,
+						IsActive = viewModel.IsActive,
+						Description = viewModel.Description,
+						IsIPRestricted = viewModel.IsIPRestricted,
+						IsUrlRestricted = viewModel.IsUrlRestricted,
 
 					//IsVerified = true,
 					//VerifierUserId = ...,
 					//VerifyDateTime = Models.Utility.Now,
 				};
 
-			await UnitOfWork.ApplicationRepository.InsertAsync(newEntity);
+				//Logger.LogTrace(typeof(ApplicationsController), "یک شیء ایجاد می‌کنم");
 
-			await UnitOfWork.SaveAsync();
+				await UnitOfWork.ApplicationRepository.InsertAsync(newEntity);
 
-			return Ok(value: newEntity);
+				//Logger.LogTrace(typeof(ApplicationsController), "شیء را به ریپوزیتوری اضافه می‌کنم");
+
+				await UnitOfWork.SaveAsync();
+
+				//Logger.LogTrace(typeof(ApplicationsController), "یونیت آو ورک را ذخیره می‌کنم");
+
+				return Ok(value: newEntity);
+			}
+			catch (System.Exception ex)
+			{
+				//Logger.LogError(typeof(ApplicationsController), ex.Message);
+
+				// "خطای ناشناخته‌ای صورت گرفته است لطفا با تیم پشتیبانی تماس حاصل فرمایید"
+
+				return Ok(value: null);
+			}
 		}
 	}
 }
