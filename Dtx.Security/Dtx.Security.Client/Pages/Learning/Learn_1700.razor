@@ -14,8 +14,12 @@
 
 <h3>
 	<button class="btn btn-primary" @onclick="DoSomething">Do Something!</button>
-	<button type="button" class="btn btn-primary" @onclick="DoSomething">Do Something!</button>
 	@*<button type="button" class="btn btn-primary" @onclick="DoSomething()">Do Something!</button>*@
+
+	<button type="submit" class="btn btn-primary" @onclick="DoSomething">Do Something!</button>
+	<button type="button" class="btn btn-primary" @onclick="DoSomething">Do Something!</button>
+
+	<button type="button" class="btn btn-primary" @onclick="() => DoSomething()">Do Something!</button>
 </h3>
 
 @code {

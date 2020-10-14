@@ -1,0 +1,32 @@
+Temp.razor
+
+Hidden!!!
+
+x.cs
+class partial Temp : System.Windows.Forms.Form
+{
+	public int X;
+}
+
+y.cs
+class partial Temp
+{
+	public int Y;
+}
+
+z.cs
+class partial Temp
+{
+	public int Z;
+}
+
+=>
+
+Compile!!!
+
+class Temp
+{
+	public int X;
+	public int Y;
+	public int Z;
+}

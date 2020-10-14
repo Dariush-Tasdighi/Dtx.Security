@@ -6,11 +6,12 @@
 		<h5>
 			Add New Todo
 		</h5>
+
 		Title
 		<br />
-		<input type="text" class="form-control" @bind="newTodoTitle" />
+		<input type="text" class="form-control" @bind="newTodoTitle" @bind:event="oninput" />
 		<br />
-		<button type="button" class="btn btn-primary btn-sm" @onclick="AddNewTodo">Add Todo</button>
+		<button type="button" class="btn btn-primary" @onclick="AddNewTodo">Add Todo</button>
 	</div>
 </div>
 
@@ -20,8 +21,27 @@
 	<div class="col">
 		<h3>
 			Todos
-			-
+		</h3>
+
+		<ul>
+
+			@foreach (var item in todos)
+			{
+				<li>
+					<input type="checkbox" @bind="item.IsDone" />
+					@(item.Title)
+				</li>
+			}
+
+		</ul>
+
+		<hr />
+
+		<h3>
+			Todos
+			[
 			@(todos.Where(current => current.IsDone == false).Count())
+			]
 		</h3>
 
 		<ul>
@@ -40,6 +60,13 @@
 
 		<hr />
 
+		<h3>
+			Todos
+			[
+			@(todos.Where(current => current.IsDone == false).Count())
+			]
+		</h3>
+
 		<ul>
 
 			@for (int index = 0; index < todos.Count; index++)
@@ -47,6 +74,8 @@
 				var item = todos[index];
 
 				<li>
+					@(index + 1)
+					-
 					<input type="checkbox" @bind="item.IsDone" />
 					@(item.Title)
 				</li>
@@ -55,6 +84,13 @@
 		</ul>
 
 		<hr />
+
+		<h3>
+			Todos
+			[
+			@(todos.Where(current => current.IsDone == false).Count())
+			]
+		</h3>
 
 		<h5>
 			دستور ذیل کار نمی‌کند
@@ -65,6 +101,8 @@
 			@for (int index = 0; index < todos.Count; index++)
 			{
 				<li>
+					@(index + 1)
+					-
 					<input type="checkbox" @bind="todos[index].IsDone" />
 					@(todos[index].Title)
 				</li>
@@ -97,6 +135,9 @@
 	private string newTodoTitle;
 	private System.Collections.Generic.List<Models.Learning.TodoItem> todos;
 
+	//private System.Collections.Generic.List<Models.Learning.TodoItem>
+	//	todos = new List<Models.Learning.TodoItem>();
+
 	private void AddNewTodo()
 	{
 		if (string.IsNullOrWhiteSpace(newTodoTitle))
@@ -106,7 +147,15 @@
 			return;
 		}
 
-		if (todos.Where(current => current.Title.ToLower() == newTodoTitle.ToLower()).Any())
+		newTodoTitle =
+			newTodoTitle.Fix();
+
+		bool hasAny =
+			todos
+			.Where(current => current.Title.ToLower() == newTodoTitle.ToLower())
+			.Any();
+
+		if (hasAny)
 		{
 			return;
 		}

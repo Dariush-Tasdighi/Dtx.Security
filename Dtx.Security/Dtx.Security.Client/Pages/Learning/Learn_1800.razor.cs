@@ -1,7 +1,7 @@
 ﻿namespace Dtx.Security.Client.Pages.Learning
 {
 	/// <summary>
-	/// Partial Class
+	/// Note: Partial Class!
 	/// Note: Do not inherit: object!
 	/// </summary>
 	public partial class Learn_1800
@@ -12,7 +12,10 @@
 		}
 
 		//private string message;
+		//private string message = "Hello, World!";
+
 		private string message { get; set; }
+		//private string message { get; set; } = "Hello, World!";
 
 		private void DoSomething()
 		{
