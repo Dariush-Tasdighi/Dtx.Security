@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtx.Security.Client", "Dtx.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dtx.Security.Server", "Dtx.Security\Dtx.Security.Server\Dtx.Security.Server.csproj", "{BDE4F424-6B10-417D-BE17-B8E88FD02ED8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestProject", "Dtx.Security\XUnitTestProject\XUnitTestProject.csproj", "{F6EC6268-36B2-44A0-93BD-9B19A86294ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTestProject", "Dtx.Security\XUnitTestProject\XUnitTestProject.csproj", "{F6EC6268-36B2-44A0-93BD-9B19A86294ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
