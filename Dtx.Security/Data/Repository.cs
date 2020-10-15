@@ -22,5 +22,6 @@ namespace Data
 
 			DbSet.Add(entity);
 		}
+
 	}
 }

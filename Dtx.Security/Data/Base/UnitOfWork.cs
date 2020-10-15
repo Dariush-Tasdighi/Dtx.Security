@@ -15,6 +15,32 @@ namespace Data.Base
 			Options = options;
 		}
 
+		#region MyRegion
+		private Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction _transaction;
+
+		public void BeginTransaction()
+		{
+			_transaction = _databaseContext.Database.BeginTransaction();
+		}
+
+		public void Commit()
+		{
+			try
+			{
+				_transaction.Commit();
+			}
+			finally
+			{
+				_transaction.Dispose();
+			}
+		}
+
+		public void Rollback()
+		{
+			_transaction.Rollback();
+			_transaction.Dispose();
+		}
+		#endregion
 		// **********
 		protected Tools.Options Options { get; set; }
 		// **********
