@@ -23,7 +23,8 @@ namespace Dtx.Security.Client
 			builder.Services.AddScoped
 				(sp => new System.Net.Http.HttpClient
 				{
-					BaseAddress = new System.Uri(builder.HostEnvironment.BaseAddress)
+					BaseAddress =
+						new System.Uri(builder.HostEnvironment.BaseAddress),
 				});
 
 			builder.Services.AddScoped<Services.ApplicationService>();

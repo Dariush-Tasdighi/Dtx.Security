@@ -10,7 +10,8 @@
 		public
 			async
 			System.Threading.Tasks.Task
-			<Microsoft.AspNetCore.Mvc.ActionResult<System.Collections.Generic.IEnumerable<Models.Application>>>
+			<Microsoft.AspNetCore.Mvc.ActionResult
+				<System.Collections.Generic.IEnumerable<Models.Application>>>
 			GetAsync()
 		{
 			System.Threading.Thread.Sleep(2000);

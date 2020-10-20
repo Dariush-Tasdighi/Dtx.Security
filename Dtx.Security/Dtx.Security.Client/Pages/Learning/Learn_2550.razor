@@ -1,0 +1,44 @@
+﻿@page "/learning/learn_2550"
+
+<div>
+	@if (Index == 1)
+	{
+		<div>
+			@(Index)
+		</div>
+	}
+</div>
+
+<hr />
+
+@*<div>
+		@if (Index == 1)
+		{
+			Hello, World!
+		}
+	</div>*@
+
+<hr />
+
+<div>
+	@if (Index == 1)
+	{
+		<span>Hello, World!</span>
+	}
+</div>
+
+<hr />
+
+<div>
+	@if (Index == 1)
+	{
+		<text>Hello, World (1)!</text>
+		@:Hello, World (2)!
+	}
+</div>
+
+@code {
+
+	public int Index { get; set; } = 1;
+
+}

@@ -1,0 +1,27 @@
+﻿@(value)
+
+@code {
+
+	protected override void OnInitialized()
+	{
+		System.DateTime now = System.DateTime.Now;
+
+		System.Globalization.PersianCalendar
+			persianCalendar = new System.Globalization.PersianCalendar();
+
+		string year =
+			persianCalendar.GetYear(time: now).ToString().PadLeft(4, '0');
+
+		string month =
+			persianCalendar.GetMonth(time: now).ToString().PadLeft(2, '0');
+
+		string day =
+			persianCalendar.GetDayOfMonth(time: now).ToString().PadLeft(2, '0');
+
+		value = $"{year}/{month}/{day}";
+
+	}
+
+	private string value;
+
+}

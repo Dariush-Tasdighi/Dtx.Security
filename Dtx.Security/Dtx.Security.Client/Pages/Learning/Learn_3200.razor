@@ -1,0 +1,16 @@
+﻿@page "/learning/learn_3200/{Id:int}"
+
+<h3>
+	This page accept some input value!
+</h3>
+
+<hr />
+
+Id: @(Id)
+
+@code {
+
+	[Parameter]
+	public int Id { get; set; }
+
+}

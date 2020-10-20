@@ -1,0 +1,23 @@
+﻿@page "/learning/learn_3300"
+@page "/learning/learn_3300/{Value1}"
+@page "/learning/learn_3300/{Value1}/{Value2}"
+
+<h3>
+	This page accept some input value!
+</h3>
+
+<hr />
+
+Value1: @(Value1)
+<br />
+Value2: @(Value2)
+
+@code {
+
+	[Parameter]
+	public string Value1 { get; set; }
+
+	[Parameter]
+	public string Value2 { get; set; }
+
+}

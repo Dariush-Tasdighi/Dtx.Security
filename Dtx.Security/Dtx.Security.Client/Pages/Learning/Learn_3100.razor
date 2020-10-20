@@ -1,0 +1,64 @@
+﻿@page "/learning/learn_3100"
+@page "/alaki/dolaki"
+
+@inject NavigationManager navigationManager
+
+<h3>
+	Learning NavigationManager
+</h3>
+
+<hr />
+
+Current Page Url: @(navigationManager.Uri)
+
+<br />
+<button type="button" @onclick="GoToIndexPage">Go To Index Page!</button>
+
+<br />
+<button type="button" @onclick="GoToSomePage1">Go To Some Page (1)!</button>
+
+<br />
+<button type="button" @onclick="GoToSomePage2">Go To Some Page (2)!</button>
+
+<br />
+<button type="button" @onclick="GoToSomePage3">Go To Some Page (3)!</button>
+
+<br />
+<button type="button" @onclick="GoToSomePage4">Go To Some Page (4)!</button>
+
+<br />
+<button type="button" @onclick="GoToSomePage5">Go To Some Page (5)!</button>
+
+@code {
+
+	private void GoToIndexPage()
+	{
+		navigationManager.NavigateTo(uri: "/learning/index", forceLoad: false);
+	}
+
+	private void GoToSomePage1()
+	{
+		navigationManager.NavigateTo(uri: "/learning/learn_3200", forceLoad: false);
+	}
+
+	private void GoToSomePage2()
+	{
+		navigationManager.NavigateTo(uri: "/learning/learn_3200/12345", forceLoad: false);
+	}
+
+	private void GoToSomePage3()
+	{
+		navigationManager.NavigateTo(uri: "/learning/learn_3300", forceLoad: false);
+	}
+
+	private void GoToSomePage4()
+	{
+		navigationManager.NavigateTo(uri: "/learning/learn_3300/Hi", forceLoad: false);
+	}
+
+	private void GoToSomePage5()
+	{
+		navigationManager.NavigateTo(uri: "/learning/learn_3300/Hi/Dariush", forceLoad: false);
+	}
+
+}

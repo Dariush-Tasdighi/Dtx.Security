@@ -1,0 +1,69 @@
+﻿@page "/learning/learn_3000"
+
+<h3>
+	Learning Lifecycle!
+</h3>
+
+<hr />
+
+1. OnInitialized()
+<br />
+2. OnParametersSet()
+<br />
+3. OnAfterRender()
+
+<hr />
+
+Do Some Changes!
+
+<br />
+1. ShouldRender()
+<br />
+2. OnAfterRender()
+
+<hr />
+
+@(message)
+<br />
+<button type="button" @onclick="DoSomething">Change Message</button>
+
+@code {
+
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+
+		Console.WriteLine(nameof(OnInitialized));
+	}
+
+	protected override void OnParametersSet()
+	{
+		base.OnParametersSet();
+
+		Console.WriteLine(nameof(OnParametersSet));
+	}
+
+	protected override bool ShouldRender()
+	{
+		bool shouldRender = base.ShouldRender();
+
+		Console.WriteLine(nameof(ShouldRender) + $" - Should Render: { shouldRender }");
+
+		return shouldRender;
+	}
+
+	protected override void OnAfterRender(bool firstRender)
+	{
+		base.OnAfterRender(firstRender);
+
+		Console.WriteLine(nameof(OnAfterRender) + $" - First Render: { firstRender }");
+	}
+
+	private string message = "Message (1)";
+
+	private void DoSomething()
+	{
+		message = "Message (2)";
+	}
+
+}

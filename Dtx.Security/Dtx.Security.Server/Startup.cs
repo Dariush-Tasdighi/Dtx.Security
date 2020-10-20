@@ -25,7 +25,7 @@ namespace Dtx.Security.Server
 					builder =>
 					{
 						builder
-							.WithOrigins("http://localhost:1220")
+							.WithOrigins("http://localhost:5001")
 							.AllowAnyHeader()
 							.AllowAnyMethod()
 							//.AllowCredentials()
