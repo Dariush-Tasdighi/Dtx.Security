@@ -23,7 +23,6 @@
 						Count
 					</th>
 					<th>
-
 					</th>
 					<th>
 						Sub Total
@@ -31,7 +30,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				@for (int index = 0; index < items.Count; index++)
+				@for (int index = 0; index <= items.Count - 1; index++)
 				{
 					var item = items[index];
 
@@ -113,20 +112,27 @@
 
 	public int GetSubTotal(Models.Learning.BasketItem item)
 	{
+		// Solution (1)
 		//return item.ProductPrice * item.ProductCount;
+		// /Solution (1)
 
+		// Solution (2)
 		//int result =
 		//	item.ProductPrice * item.ProductCount;
 
 		//return result;
+		// /Solution (2)
 
+		// Solution (3)
 		int result =
 			item.ProductPrice * item.ProductCount;
 
 		if (item.ProductCount > 5)
 		{
-			result *= (int)((decimal)95 / 100);
+			result =
+				(int)((decimal)(result * 95) / 100);
 		}
+		// /Solution (3)
 
 		return result;
 	}

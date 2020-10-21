@@ -1,0 +1,33 @@
+﻿@page "/learning/learn_1750"
+
+<h3>
+	@(message)
+</h3>
+
+<button class="btn btn-primary" @onclick="DoSomething1">Do Something (1)!</button>
+<hr />
+<button class="btn btn-primary" @onclick="() => DoSomething2()">Do Something (2)!</button>
+<hr />
+<button class="btn btn-primary" @onclick="(e) => DoSomething3(e)">Do Something (3)!</button>
+<hr />
+
+@code {
+
+	private string message = "Hello, World!";
+
+	private void DoSomething1()
+	{
+		message = "Do Something (1) Invoked!";
+	}
+
+	private void DoSomething2()
+	{
+		message = "Do Something (2) Invoked!";
+	}
+
+	private void DoSomething3(MouseEventArgs args)
+	{
+		message = $"Do Something (3) Invoked! - { args.ScreenX } - { args.ScreenY } - { args.Type }";
+	}
+
+}

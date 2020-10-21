@@ -14,15 +14,18 @@
 	[Parameter]
 	public int Rate { get; set; } = 300000;
 
-	//private long dollars = 1000;
-
 	[Parameter]
 	public long Dollars { get; set; } = 1000;
+
+	[Parameter]
+	public EventCallback<long> OnRialsChanged { get; set; }
 
 	private void Convert()
 	{
 		rials =
 			Dollars * Rate;
+
+		OnRialsChanged.InvokeAsync(rials);
 	}
 
 }

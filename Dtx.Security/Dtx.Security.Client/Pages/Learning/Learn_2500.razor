@@ -23,15 +23,15 @@
 						Count
 					</th>
 					<th>
-
 					</th>
 					<th>
 						Sub Total
 					</th>
 				</tr>
 			</thead>
+
 			<tbody>
-				@for (int index = 0; index < items.Count; index++)
+				@for (int index = 0; index <= items.Count - 1; index++)
 				{
 					var item = items[index];
 
@@ -96,13 +96,22 @@
 
 	public int GetTotal()
 	{
-		int result = 0;
+		// Solution (1)
+		//int result = 0;
 
-		foreach (var item in items)
-		{
-			result +=
-				item.GetSubTotal();
-		}
+		//foreach (var item in items)
+		//{
+		//	result +=
+		//		item.GetSubTotal();
+		//}
+		// /Solution (1)
+
+		// Solution (2)
+		int result =
+			items
+			.Sum(current => current.GetSubTotal())
+			;
+		// /Solution (2)
 
 		return result;
 	}

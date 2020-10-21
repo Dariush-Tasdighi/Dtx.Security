@@ -1,8 +1,8 @@
 ﻿@page "/learning/learn_3000"
 
-<h3>
+<h1>
 	Learning Lifecycle!
-</h3>
+</h1>
 
 <hr />
 
@@ -14,7 +14,9 @@
 
 <hr />
 
-Do Some Changes!
+<h3>
+	Do Some Changes!
+</h3>
 
 <br />
 1. ShouldRender()
@@ -45,7 +47,8 @@ Do Some Changes!
 
 	protected override bool ShouldRender()
 	{
-		bool shouldRender = base.ShouldRender();
+		bool shouldRender =
+			base.ShouldRender();
 
 		Console.WriteLine(nameof(ShouldRender) + $" - Should Render: { shouldRender }");
 

@@ -1,0 +1,157 @@
+﻿@page "/learning/learn_2525"
+
+<h1>
+	Basket
+</h1>
+
+@if (items == null)
+{
+	<div>
+		Loading...
+	</div>
+}
+else
+{
+	<div class="row">
+		<div class="col table-responsive">
+
+			<table class="table table-bordered table-striped table-hover">
+				<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							@(Resources.DataDictionary.Name)
+						</th>
+						<th>
+							Price
+						</th>
+						<th>
+							Count
+						</th>
+						<th>
+						</th>
+						<th>
+							Sub Total
+						</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					@for (int index = 0; index <= items.Count - 1; index++)
+					{
+						var item = items[index];
+
+						<tr>
+							<td>
+								@(index + 1)
+							</td>
+							<td>
+								@(item.ProductName)
+							</td>
+							<td>
+								@(item.ProductPrice)
+							</td>
+							<td>
+								@(item.ProductCount)
+							</td>
+							<td>
+								<button type="button" class="btn btn-primary btn-sm" @onclick="() => item.Plus()">+</button>
+								<button type="button" class="btn btn-primary btn-sm" @onclick="() => item.Minus()">-</button>
+							</td>
+							<td>
+								@(item.GetSubTotal())
+							</td>
+						</tr>
+					}
+
+					<tr>
+						<td colspan="5">
+						</td>
+						<td>
+							@(GetTotal())
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+}
+
+@code {
+
+	//protected override void OnInitialized()
+	//{
+	//	items =
+	//		new List<Models.Learning.BasketItem>();
+
+	//	for (int index = 1; index <= 5; index++)
+	//	{
+	//		var item =
+	//			new Models.Learning.BasketItem
+	//			{
+	//				ProductCount = 1,
+	//				ProductName = $"Product { index }",
+	//				ProductPrice = index * 100,
+	//			};
+
+	//		items.Add(item);
+	//	}
+	//}
+
+	//protected override async Task OnInitializedAsync()
+	//{
+	//	items =
+	//		new List<Models.Learning.BasketItem>();
+
+	//	for (int index = 1; index <= 5; index++)
+	//	{
+	//		var item =
+	//			new Models.Learning.BasketItem
+	//			{
+	//				ProductCount = 1,
+	//				ProductName = $"Product { index }",
+	//				ProductPrice = index * 100,
+	//			};
+
+	//		items.Add(item);
+	//	}
+	//}
+
+	protected override async Task OnInitializedAsync()
+	{
+		await System.Threading.Tasks.Task.Run(() =>
+		{
+			items =
+				new List<Models.Learning.BasketItem>();
+
+			for (int index = 1; index <= 1000; index++)
+			{
+				var item =
+					new Models.Learning.BasketItem
+					{
+						ProductCount = 1,
+						ProductName = $"Product { index }",
+						ProductPrice = index * 100,
+					};
+
+				items.Add(item);
+			}
+		});
+	}
+
+	private System.Collections.Generic.List<Models.Learning.BasketItem> items;
+
+	public int GetTotal()
+	{
+		int result =
+			items
+			.Sum(current => current.GetSubTotal())
+			;
+
+		return result;
+	}
+
+}

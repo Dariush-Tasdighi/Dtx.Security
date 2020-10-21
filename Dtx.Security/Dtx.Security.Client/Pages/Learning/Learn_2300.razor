@@ -27,8 +27,9 @@
 					</th>
 				</tr>
 			</thead>
+
 			<tbody>
-				@for (int index = 0; index < items.Count; index++)
+				@for (int index = 0; index <= items.Count - 1; index++)
 				{
 					var item = items[index];
 

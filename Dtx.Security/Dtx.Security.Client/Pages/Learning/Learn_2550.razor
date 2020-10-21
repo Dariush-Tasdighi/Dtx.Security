@@ -9,21 +9,21 @@
 	}
 </div>
 
-<hr />
-
-@*<div>
+@*
+	<div>
 		@if (Index == 1)
 		{
 			Hello, World!
 		}
-	</div>*@
+	</div>
+*@
 
 <hr />
 
 <div>
 	@if (Index == 1)
 	{
-		<span>Hello, World!</span>
+		<span>Hello, World (1)!</span>
 	}
 </div>
 
@@ -32,8 +32,25 @@
 <div>
 	@if (Index == 1)
 	{
-		<text>Hello, World (1)!</text>
-		@:Hello, World (2)!
+		<text>Hello, World (2)!</text>
+	}
+</div>
+
+<hr />
+
+<div>
+	@if (Index == 1)
+	{
+		@:Hello, World (3)!
+	}
+</div>
+
+<hr />
+
+<div>
+	@if (Index == 1)
+	{
+		<text>Hello, <b>World</b> <i>(4)</i>!</text>
 	}
 </div>
 

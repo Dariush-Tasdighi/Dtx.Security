@@ -1,0 +1,21 @@
+﻿@page "/learning/learn_2900"
+
+<ConvertDollarsToRials3 OnRialsChanged="(e) => RialsChanged(e)" />
+
+<hr />
+
+@if(rials > 0)
+{
+	@(rials.ToString("#,##0"))
+}
+
+@code {
+
+	private long rials;
+
+	private void RialsChanged(long newRials)
+	{
+		rials = newRials;
+	}
+
+}

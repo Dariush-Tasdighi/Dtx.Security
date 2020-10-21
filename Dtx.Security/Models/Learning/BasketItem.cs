@@ -20,7 +20,7 @@
 
 		public void Plus()
 		{
-			if(ProductCount < 10)
+			if (ProductCount < 10)
 			{
 				ProductCount++;
 			}
@@ -28,7 +28,7 @@
 
 		public void Minus()
 		{
-			if(ProductCount > 0)
+			if (ProductCount > 0)
 			{
 				ProductCount--;
 			}
@@ -41,8 +41,8 @@
 
 			if (ProductCount > 5)
 			{
-				result *=
-					(int)((decimal)95 / 100);
+				result =
+					(int)((decimal)(result * 95) / 100);
 			}
 
 			return result;
