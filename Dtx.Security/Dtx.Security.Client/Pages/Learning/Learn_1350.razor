@@ -1,0 +1,19 @@
+﻿@page "/learning/learn_1350"
+
+<div>
+	@(message)
+</div>
+
+<hr />
+
+<div>
+	@((MarkupString)message)
+</div>
+
+<hr />
+
+@code {
+
+	private string message = "<b><i>Hello, World!</i><b>";
+
+}
