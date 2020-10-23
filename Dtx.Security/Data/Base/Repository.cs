@@ -41,7 +41,8 @@ namespace Data.Base
 		// **********
 
 		// **********
-		protected Microsoft.EntityFrameworkCore.DbSet<T> DbSet { get; set; }
+		internal Microsoft.EntityFrameworkCore.DbSet<T> DbSet { get; }
+		//internal Microsoft.EntityFrameworkCore.DbSet<T> DbSet { get; set; }
 		// **********
 
 		public virtual void Insert(T entity)
@@ -195,12 +196,26 @@ namespace Data.Base
 
 		public virtual System.Collections.Generic.IList<T> GetAll()
 		{
-			return DbSet.ToList();
+			//return DbSet.ToList();
+
+			var result =
+				DbSet.ToList()
+				;
+
+			return result;
 		}
 
 		public virtual async System.Threading.Tasks.Task<System.Collections.Generic.IList<T>> GetAllAsync()
 		{
-			return await DbSet.ToListAsync();
+			//return await DbSet.ToListAsync();
+
+			var result =
+				await
+				DbSet.ToListAsync()
+				;
+
+			return result;
+
 		}
 	}
 }

@@ -1,6 +1,4 @@
-﻿using Data.Tools;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Data.Base
 {
@@ -84,15 +82,6 @@ namespace Data.Base
 							break;
 						}
 					}
-
-					//if (Options.InMemoryDatabase)
-					//{
-					//	//optionsBuilder.UseInMemoryDatabase<DatabaseContext>();
-					//}
-					//else
-					//{
-					//	optionsBuilder.UseSqlServer(connectionString: Options.ConnectionString);
-					//}
 
 					_databaseContext =
 						new DatabaseContext(options: optionsBuilder.Options);

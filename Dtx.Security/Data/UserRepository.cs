@@ -11,6 +11,11 @@ namespace Data
 
 		public Models.User GetByUsername(string username)
 		{
+			if (string.IsNullOrWhiteSpace(username))
+			{
+				return null;
+			}
+
 			//var result =
 			//	DbSet
 			//	.Where(current => string.Compare(current.Username, username, true) == 0)
@@ -26,10 +31,26 @@ namespace Data
 
 		public System.Threading.Tasks.Task<Models.User> GetByUsernameAsync(string username)
 		{
+			if (string.IsNullOrWhiteSpace(username))
+			{
+				return null;
+			}
+
 			var result =
 				DbSet
 				.Where(current => current.Username.ToLower() == username.ToLower())
 				.FirstOrDefaultAsync();
+
+			return result;
+		}
+
+		public System.Collections.Generic.List<Models.User> GetActive()
+		{
+			var result =
+				DbSet
+				.Where(current => current.IsActive)
+				.ToList()
+				;
 
 			return result;
 		}

@@ -9,10 +9,13 @@ namespace Data
 		{
 		}
 
+		//public override void Insert(T entity)
+		//{
+		//	base.Insert(entity);
+		//}
+
 		public override void Insert(T entity)
 		{
-			//base.Insert(entity);
-
 			if (entity == null)
 			{
 				throw new System.ArgumentNullException(paramName: nameof(entity));
@@ -22,5 +25,12 @@ namespace Data
 
 			DbSet.Add(entity);
 		}
+
+		//public override void Delete(T entity)
+		//{
+		//	entity.IsDeleted = true;
+
+		//	Update(entity);
+		//}
 	}
 }
