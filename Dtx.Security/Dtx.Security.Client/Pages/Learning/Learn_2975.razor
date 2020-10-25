@@ -1,0 +1,37 @@
+﻿@page "/learning/learn_2975"
+
+<h1>
+	@(Message)
+</h1>
+
+<hr />
+
+<DtxButton2></DtxButton2>
+
+<hr />
+
+<DtxButton2 Caption="Caption 1"></DtxButton2>
+
+<hr />
+
+<DtxButton2 Caption="Caption 2" OnClick="() => DtxButtonClicked1()"></DtxButton2>
+
+<hr />
+
+<DtxButton2 Caption="Caption 3" OnClick="(e) => DtxButtonClicked2(e)"></DtxButton2>
+
+@code {
+
+	public string Message { get; set; }
+
+	private void DtxButtonClicked1()
+	{
+		Message = "[Caption 2] Clicked!";
+	}
+
+	private void DtxButtonClicked2(MouseEventArgs e)
+	{
+		Message = $"[Caption 2] Clicked! - X: { e.ScreenX } - Y: { e.ScreenY }";
+	}
+
+}

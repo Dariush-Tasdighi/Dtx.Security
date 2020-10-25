@@ -1,0 +1,16 @@
+﻿<button type="button" class="btn btn-primary" @onclick="(e) => ButtonClicked(e)">@(Caption)</button>
+
+@code {
+
+	[Parameter]
+	public string Caption { get; set; } = "Caption Not Set!";
+
+	[Parameter]
+	public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+	private void ButtonClicked(MouseEventArgs e)
+	{
+		OnClick.InvokeAsync(e);
+	}
+
+}

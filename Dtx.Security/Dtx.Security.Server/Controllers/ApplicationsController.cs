@@ -96,6 +96,12 @@
 		{
 			try
 			{
+				// Check viewModel Validation!
+
+				// Collection = Infrastructure.Utitily.CheckModel(viewModel)
+				// Collection.Count -> 0 => No Error!
+				// Loop Collection -> Result -> AddErrorMessage(item)
+
 				var newEntity =
 					new Models.Application
 					{

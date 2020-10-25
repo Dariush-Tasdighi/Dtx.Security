@@ -1,58 +1,63 @@
-﻿<EditForm Model="@Model" OnValidSubmit="@HandleValidSubmit">
+﻿@*
+	<form>
+	</form>
+*@
+
+<EditForm Model="Model" OnValidSubmit="HandleValidSubmit">
 	<DataAnnotationsValidator />
 	@*<ValidationSummary />*@
 
 	<div class="form-group">
-		<label for="name">@Resources.DataDictionary.Name</label>
+		<label for="name">@(Resources.DataDictionary.Name)</label>
 		<InputText id="name" class="form-control" @bind-Value="Model.Name" />
 		<div class="form-control-validation">
-			<ValidationMessage For="@(() => Model.Name)" />
+			<ValidationMessage For="() => Model.Name" />
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label for="title">@Resources.DataDictionary.Title</label>
+		<label for="title">@(Resources.DataDictionary.Title)</label>
 		<InputText id="title" class="form-control" @bind-Value="Model.Title" />
 		<div class="form-control-validation">
-			<ValidationMessage For="@(() => Model.Title)" />
+			<ValidationMessage For="() => Model.Title" />
 		</div>
 	</div>
 
 	<div class="form-group form-check">
 		<InputCheckbox id="isActive" class="form-check-input" @bind-Value="Model.IsActive" />
-		<label class="form-check-label" for="isActive">@Resources.DataDictionary.IsActive</label>
+		<label class="form-check-label" for="isActive">@(Resources.DataDictionary.IsActive)</label>
 		<div class="form-control-validation">
-			<ValidationMessage For="@(() => Model.IsActive)" />
+			<ValidationMessage For="() => Model.IsActive" />
 		</div>
 	</div>
 
 	<div class="form-group form-check">
 		<InputCheckbox id="isIPRestricted" class="form-check-input" @bind-Value="Model.IsIPRestricted" />
-		<label class="form-check-label" for="isIPRestricted">@Resources.DataDictionary.IsIPRestricted</label>
+		<label class="form-check-label" for="isIPRestricted">@(Resources.DataDictionary.IsIPRestricted)</label>
 		<div class="form-control-validation">
-			<ValidationMessage For="@(() => Model.IsIPRestricted)" />
+			<ValidationMessage For="() => Model.IsIPRestricted" />
 		</div>
 	</div>
 
 	<div class="form-group form-check">
 		<InputCheckbox id="isUrlRestricted" class="form-check-input" @bind-Value="Model.IsUrlRestricted" />
-		<label class="form-check-label" for="isUrlRestricted">@Resources.DataDictionary.IsUrlRestricted</label>
+		<label class="form-check-label" for="isUrlRestricted">@(Resources.DataDictionary.IsUrlRestricted)</label>
 		<div class="form-control-validation">
-			<ValidationMessage For="@(() => Model.IsUrlRestricted)" />
+			<ValidationMessage For="() => Model.IsUrlRestricted" />
 		</div>
 	</div>
 
 	<div class="form-group">
-		<label for="description">@Resources.DataDictionary.Description</label>
+		<label for="description">@(Resources.DataDictionary.Description)</label>
 		<InputTextArea id="description" class="form-control" @bind-Value="Model.Description" />
 		<div class="form-control-validation">
-			<ValidationMessage For="@(() => Model.Description)" />
+			<ValidationMessage For="() => Model.Description" />
 		</div>
 	</div>
 
 	<div class="form-group">
-		<button type="submit" class="btn btn-primary">@Resources.Buttons.Create</button>
-		<button type="reset" class="btn btn-secondary">@Resources.Buttons.Reset</button>
+		<button type="submit" class="btn btn-primary">@(Resources.Buttons.Create)</button>
+		<button type="reset" class="btn btn-secondary">@(Resources.Buttons.Reset)</button>
 	</div>
 </EditForm>
 

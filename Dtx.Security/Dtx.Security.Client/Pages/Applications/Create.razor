@@ -1,4 +1,6 @@
 ﻿@page "/application/create"
+
+@inject NavigationManager navigationManager
 @inject Services.ApplicationService applicationService
 
 <h3>
@@ -27,6 +29,10 @@
 	private async Task Submit()
 	{
 		CreatedModel =
-			await applicationService.PostAsync(Model);
+			await
+			applicationService.PostAsync
+			(Model);
+
+		navigationManager.NavigateTo(uri: "/applications/index", forceLoad: false);
 	}
 }

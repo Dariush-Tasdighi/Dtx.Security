@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Json;
-
-namespace Dtx.Security.Client.Services
+﻿namespace Dtx.Security.Client.Services
 {
 	public class ApplicationService : Infrastructure.BaseService
 	{

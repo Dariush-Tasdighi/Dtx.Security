@@ -27,7 +27,8 @@ namespace Infrastructure
 
 		protected string RequestUri { get; set; }
 
-		protected System.Net.Http.HttpClient Http { get; set; }
+		protected System.Net.Http.HttpClient Http { get; }
+		//protected System.Net.Http.HttpClient Http { get; set; }
 
 		protected System.Text.Json.JsonSerializerOptions JsonOptions { get; set; }
 

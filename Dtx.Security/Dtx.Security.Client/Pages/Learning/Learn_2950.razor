@@ -1,0 +1,28 @@
+﻿@page "/learning/learn_2950"
+
+<h1>
+	@(Message)
+</h1>
+
+<hr />
+
+<DtxButton1></DtxButton1>
+
+<hr />
+
+<DtxButton1 Caption="Caption 1"></DtxButton1>
+
+<hr />
+
+<DtxButton1 Caption="Caption 2" OnClick="() => DtxButto1Clicked()"></DtxButton1>
+
+@code {
+
+	public string Message { get; set; }
+
+	private void DtxButto1Clicked()
+	{
+		Message = "[Caption 2] Clicked!";
+	}
+
+}

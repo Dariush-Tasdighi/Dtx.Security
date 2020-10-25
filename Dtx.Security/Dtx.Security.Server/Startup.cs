@@ -5,8 +5,8 @@ namespace Dtx.Security.Server
 {
 	public class Startup : object
 	{
-		public const string AdminCorsPolicy = "_ADMIN_CORS_POLICY";
-		public const string OthersCorsPolicy = "_OTHERS_CORS_POLICY";
+		public const string ADMIN_CORS_POLICY = "ADMIN_CORS_POLICY";
+		public const string OTHERS_CORS_POLICY = "OTHERS_CORS_POLICY";
 
 		public Startup(Microsoft.Extensions.Configuration.IConfiguration configuration)
 		{
@@ -21,7 +21,7 @@ namespace Dtx.Security.Server
 			// Cross-Origin Resource Sharing (CORS)
 			services.AddCors(options =>
 			{
-				options.AddPolicy(AdminCorsPolicy,
+				options.AddPolicy(ADMIN_CORS_POLICY,
 					builder =>
 					{
 						builder
@@ -32,7 +32,7 @@ namespace Dtx.Security.Server
 							;
 					});
 
-				options.AddPolicy(OthersCorsPolicy,
+				options.AddPolicy(OTHERS_CORS_POLICY,
 					builder =>
 					{
 						builder
@@ -106,7 +106,7 @@ namespace Dtx.Security.Server
 
 			//app.UseHttpsRedirection();
 
-			app.UseCors(policyName: AdminCorsPolicy);
+			app.UseCors(policyName: ADMIN_CORS_POLICY);
 
 			app.UseRouting();
 

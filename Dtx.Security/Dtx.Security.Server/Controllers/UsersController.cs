@@ -7,6 +7,7 @@
 		}
 
 		[Microsoft.AspNetCore.Mvc.HttpGet("Login")]
+		[Microsoft.AspNetCore.Cors.EnableCors(policyName: Startup.OTHERS_CORS_POLICY)]
 		public
 			async
 			System.Threading.Tasks.Task
