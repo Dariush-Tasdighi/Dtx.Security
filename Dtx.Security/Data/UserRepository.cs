@@ -9,6 +9,11 @@ namespace Data
 		{
 		}
 
+		/// <summary>
+		/// فراخوانی کاربر برحسب نام کاربر
+		/// </summary>
+		/// <param name="username"></param>
+		/// <returns></returns>
 		public Models.User GetByUsername(string username)
 		{
 			if (string.IsNullOrWhiteSpace(username))
