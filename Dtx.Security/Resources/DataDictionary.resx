@@ -180,6 +180,9 @@
   <data name="IsActive" xml:space="preserve">
     <value>Active</value>
   </data>
+  <data name="IsDeleted" xml:space="preserve">
+    <value>IsDeleted</value>
+  </data>
   <data name="IsExpirable" xml:space="preserve">
     <value>Expirable</value>
   </data>

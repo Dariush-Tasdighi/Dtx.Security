@@ -16,6 +16,13 @@
 		// **********
 
 		// **********
+		[System.ComponentModel.DataAnnotations.Display
+			(ResourceType = typeof(Resources.DataDictionary),
+			Name = nameof(Resources.DataDictionary.IsDeleted))]
+		public bool IsDeleted { get; set; }
+		// **********
+
+		// **********
 		//[System.ComponentModel.DataAnnotations.Display
 		//	(ResourceType = typeof(Resources.DataDictionary),
 		//	Name = nameof(Resources.DataDictionary.Ordering))]
