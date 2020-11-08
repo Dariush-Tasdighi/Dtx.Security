@@ -9,5 +9,17 @@
 		// **********
 		IApplicationRepository ApplicationRepository { get; }
 		// **********
+
+		// **********
+		IPermissionRepository PermissionRepository { get; }
+		// **********
+
+		// **********
+		IApplicationEntityRepository ApplicationEntityRepository { get; }
+		// **********
+
+		// **********
+		IApplicationGroupRepository ApplicationGroupRepository { get; }
+		// **********
 	}
 }
