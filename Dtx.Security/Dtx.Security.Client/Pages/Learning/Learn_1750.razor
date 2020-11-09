@@ -4,11 +4,11 @@
 	@(message)
 </h3>
 
-<button class="btn btn-primary" @onclick="DoSomething1">Do Something (1)!</button>
+<button type="button" class="btn btn-primary" @onclick="DoSomething1">Do Something (1)!</button>
 <hr />
-<button class="btn btn-primary" @onclick="() => DoSomething2()">Do Something (2)!</button>
+<button type="button" class="btn btn-primary" @onclick="() => DoSomething2()">Do Something (2)!</button>
 <hr />
-<button class="btn btn-primary" @onclick="(e) => DoSomething3(e)">Do Something (3)!</button>
+<button type="button" class="btn btn-primary" @onclick="(e) => DoSomething3(e)">Do Something (3)!</button>
 <hr />
 
 @code {

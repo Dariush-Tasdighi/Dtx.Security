@@ -138,6 +138,11 @@
 	//private System.Collections.Generic.List<Models.Learning.TodoItem>
 	//	todos = new List<Models.Learning.TodoItem>();
 
+	public void Delete(Models.Learning.TodoItem item)
+	{
+		todos.Remove(item);
+	}
+
 	private void AddNewTodo()
 	{
 		if (string.IsNullOrWhiteSpace(newTodoTitle))
@@ -168,11 +173,6 @@
 			};
 
 		todos.Add(newTodoItem);
-	}
-
-	public void Delete(Models.Learning.TodoItem item)
-	{
-		todos.Remove(item);
 	}
 
 }

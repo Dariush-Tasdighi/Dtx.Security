@@ -8,18 +8,18 @@
 	{
 		public Learn_1800() : base()
 		{
-			message = "Hello, World!";
+			Message = "Hello, World!";
 		}
 
-		//private string message;
-		//private string message = "Hello, World!";
+		//private string _message;
+		//private string _message = "Hello, World!";
 
-		private string message { get; set; }
-		//private string message { get; set; } = "Hello, World!";
+		public string Message { get; set; }
+		//public string Message { get; set; } = "Hello, World!";
 
 		private void DoSomething()
 		{
-			message = "Hello, World!";
+			Message = "Hello, World!";
 		}
 	}
 }
