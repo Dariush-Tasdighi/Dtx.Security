@@ -9,6 +9,12 @@ namespace Data
 		{
 
 		}
+
+		/// <summary>
+		/// جستجو بر اساس نام 
+		/// </summary>
+		/// <param name="name"></param>
+		/// <returns></returns>
 		public Models.ApplicationGroup GetByName(string name)
 		{
 			if (string.IsNullOrWhiteSpace(name))
@@ -24,6 +30,11 @@ namespace Data
 			return result;
 		}
 
+		/// <summary>
+		/// جستجو بر اساس نام 
+		/// </summary>
+		/// <param name="name"></param>
+		/// <returns></returns>
 		public System.Threading.Tasks.Task<Models.ApplicationGroup> GetByNameAsync(string name)
 		{
 			if (string.IsNullOrWhiteSpace(name))
@@ -39,19 +50,8 @@ namespace Data
 			return result;
 		}
 
-		//public System.Threading.Tasks.Task<Models.ApplicationGroup> GetByApplicationId()
-		//{
-		//	var result=
-
-		//}
-
-		//public GetByApplicationName()
-		//{
-
-		//}
-
 		/// <summary>
-		/// دریافت ApplicationGroup های فعال 
+		/// رکورددهای فعال 
 		/// </summary>
 		/// <returns></returns>
 		public System.Collections.Generic.IList<Models.ApplicationGroup> GetActive()
@@ -65,7 +65,7 @@ namespace Data
 		}
 
 		/// <summary>
-		/// دریافت ApplicationGroup های فعال 
+		/// رکورددهای فعال 
 		/// </summary>
 		/// <returns></returns>
 		public System.Threading.Tasks.Task<System.Collections.Generic.List<Models.ApplicationGroup>> GetAciveAsync()
@@ -110,6 +110,12 @@ namespace Data
 			return result;
 		}
 
+		/// <summary>
+		/// دریافت ApplicationGroup با شناسه 
+		/// applicationId
+		/// </summary>
+		/// <param name="applicationId"></param>
+		/// <returns></returns>
 		public ApplicationGroup GetByApplicationId(System.Guid applicationId)
 		{
 			var result =
@@ -119,6 +125,13 @@ namespace Data
 
 			return result;
 		}
+
+		/// <summary>
+		/// دریافت ApplicationGroup با شناسه 
+		/// applicationId
+		/// </summary>
+		/// <param name="applicationId"></param>
+		/// <returns></returns>
 		public System.Threading.Tasks.Task<Models.ApplicationGroup> GetByApplicationIdAsync(System.Guid applicationId)
 		{
 			var result =
