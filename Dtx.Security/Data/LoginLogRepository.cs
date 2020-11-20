@@ -16,7 +16,9 @@ namespace Data
 		/// <returns>
 		/// Generic List of Models.LoginLog for specific user
 		/// </returns>
-		public System.Collections.Generic.List<Models.LoginLog> GetByUserId(System.Guid userId)
+		public 
+			System.Collections.Generic.List<Models.LoginLog> 
+			GetByUserId(System.Guid userId)
 		{
 			var result =
 				DbSet
@@ -34,7 +36,10 @@ namespace Data
 		/// <returns>
 		/// Generic Task of Generic List of Models.LoginLog for specific user
 		/// </returns>
-		public async System.Threading.Tasks.Task<System.Collections.Generic.List<Models.LoginLog>> GetByUserIdAsync(System.Guid userId)
+		public 
+			async 
+			System.Threading.Tasks.Task<System.Collections.Generic.List<Models.LoginLog>> 
+			GetByUserIdAsync(System.Guid userId)
 		{
 			var result =
 				await DbSet
@@ -46,13 +51,16 @@ namespace Data
 		}
 
 		/// <summary>
-		/// This method gets last LoginLog(s) order by insert time of LoginLog by count parameter, synchronously
+		/// This method gets last LoginLog(s) order by insert time of LoginLog
+		/// by count parameter, synchronously
 		/// </summary>
 		/// <param name="count"></param>
 		/// <returns>
 		/// Generic List of Models.LoginLog order by insert time 
 		/// </returns>
-		public System.Collections.Generic.List<Models.LoginLog> GetLast(int count)
+		public 
+			System.Collections.Generic.List<Models.LoginLog> 
+			GetLast(int count)
 		{
 			var result =
 				DbSet
@@ -65,13 +73,17 @@ namespace Data
 		}
 
 		/// <summary>
-		/// This method gets last LoginLog(s) order by insert time of LoginLog by count parameter, asynchronously
+		/// This method gets last LoginLog(s) order by insert time of LoginLog
+		/// by count parameter, asynchronously
 		/// </summary>
 		/// <param name="count"></param>
 		/// <returns>
 		/// Generic Task of Generic List of Models.LoginLog order by insert time 
 		/// </returns>
-		public async System.Threading.Tasks.Task<System.Collections.Generic.List<Models.LoginLog>> GetLastAsync(int count)
+		public 
+			async 
+			System.Threading.Tasks.Task<System.Collections.Generic.List<Models.LoginLog>> 
+			GetLastAsync(int count)
 		{
 			var result =
 				await DbSet
@@ -84,14 +96,17 @@ namespace Data
 		}
 
 		/// <summary>
-		/// This method gets last LoginLog(s) of specefic user order by insert time of LoginLog by userId and count parameter, synchronously
+		/// This method gets last LoginLog(s) of specefic user
+		/// order by insert time of LoginLog by userId and count parameter, synchronously
 		/// </summary>
 		/// <param name="userId"></param>
 		/// <param name="count"></param>
 		/// <returns>
 		/// Generic List of Models.LoginLog order by insert time for specefic user
 		/// </returns>
-		public System.Collections.Generic.List<Models.LoginLog> GetLastOfUser(System.Guid userId, int count)
+		public 
+			System.Collections.Generic.List<Models.LoginLog> 
+			GetLastOfUser(System.Guid userId, int count)
 		{
 			var result =
 				DbSet
@@ -105,13 +120,17 @@ namespace Data
 		}
 
 		/// <summary>
-		/// This method gets last LoginLog(s) of specefic user order by insert time of LoginLog by userId and count parameter, asynchronously
+		/// This method gets last LoginLog(s) of specefic user order by
+		/// insert time of LoginLog by userId and count parameter, asynchronously
 		/// </summary>
 		/// <param name="count"></param>
 		/// <returns>
 		/// Generic Task of Generic List of Models.LoginLog order by insert time for specefic user
 		/// </returns>
-		public async System.Threading.Tasks.Task<System.Collections.Generic.List<Models.LoginLog>> GetLastOfUserAsync(System.Guid userId, int count)
+		public 
+			async 
+			System.Threading.Tasks.Task<System.Collections.Generic.List<Models.LoginLog>> 
+			GetLastOfUserAsync(System.Guid userId, int count)
 		{
 			var result =
 				await DbSet
