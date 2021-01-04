@@ -14,11 +14,15 @@
 
 <hr />
 
-<DtxButton2 Caption="Caption 2" OnClick="() => DtxButtonClicked1()"></DtxButton2>
+<DtxButton2 Caption="Caption 2" OnClick="DtxButtonClicked1"></DtxButton2>
 
 <hr />
 
-<DtxButton2 Caption="Caption 3" OnClick="(e) => DtxButtonClicked2(e)"></DtxButton2>
+<DtxButton2 Caption="Caption 3" OnClick="() => DtxButtonClicked1()"></DtxButton2>
+
+<hr />
+
+<DtxButton2 Caption="Caption 4" OnClick="(e) => DtxButtonClicked2(e)"></DtxButton2>
 
 @code {
 
@@ -26,12 +30,12 @@
 
 	private void DtxButtonClicked1()
 	{
-		Message = "[Caption 2] Clicked!";
+		Message = "[Caption 2] or [Caption 3] Clicked!";
 	}
 
 	private void DtxButtonClicked2(MouseEventArgs e)
 	{
-		Message = $"[Caption 2] Clicked! - X: { e.ScreenX } - Y: { e.ScreenY }";
+		Message = $"[Caption 4] Clicked! - X: { e.ScreenX } - Y: { e.ScreenY }";
 	}
 
 }
