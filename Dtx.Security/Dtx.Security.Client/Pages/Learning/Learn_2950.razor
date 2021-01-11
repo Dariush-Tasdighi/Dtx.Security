@@ -14,19 +14,24 @@
 
 <hr />
 
-<DtxButton1 Caption="Caption 2" OnClick="DtxButto1Clicked"></DtxButton1>
+<DtxButton1 Caption="Caption 2" OnClick="DtxButto1Clicked2"></DtxButton1>
 
 <hr />
 
-<DtxButton1 Caption="Caption 3" OnClick="() => DtxButto1Clicked()"></DtxButton1>
+<DtxButton1 Caption="Caption 3" OnClick="() => DtxButto1Clicked3()"></DtxButton1>
 
 @code {
 
 	public string Message { get; set; }
 
-	private void DtxButto1Clicked()
+	private void DtxButto1Clicked2()
 	{
-		Message = "[Caption 2] or [Caption 3] Clicked!";
+		Message = "[Caption 2] Clicked!";
+	}
+
+	private void DtxButto1Clicked3()
+	{
+		Message = "[Caption 3] Clicked!";
 	}
 
 }

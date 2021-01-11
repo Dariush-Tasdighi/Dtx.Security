@@ -1,0 +1,26 @@
+﻿<div class="alert alert-@(Type.ToString().ToLower())">
+	@(ChildContent)
+</div>
+
+@code {
+
+	public enum AlertType : int
+	{
+		Primary = 0,
+		Secondary = 1,
+		Success = 2,
+		Danger = 3,
+		Warning = 4,
+		Info = 5,
+		Light = 6,
+		Dark = 7,
+		Link = 8,
+	}
+
+	[Parameter]
+	public AlertType Type { get; set; }
+
+	[Parameter]
+	public RenderFragment ChildContent { get; set; }
+
+}

@@ -1,9 +1,9 @@
-﻿<button type="button" class="btn btn-primary" @onclick="() => ButtonClicked()">@(Caption)</button>
+﻿<button type="button" class="btn btn-primary" @onclick="ButtonClicked">@(Caption)</button>
 
 @code {
 
 	[Parameter]
-	public string Caption { get; set; } = "Caption Not Set!";
+	public string Caption { get; set; } = "Submit";
 
 	[Parameter]
 	public EventCallback OnClick { get; set; }

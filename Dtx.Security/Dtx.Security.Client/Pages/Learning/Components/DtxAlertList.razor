@@ -1,0 +1,23 @@
+﻿<DtxAlert>
+
+	<ul>
+		@*@foreach (var item in collection)
+			{
+				<li>@(item)</li>
+			}*@
+	</ul>
+
+</DtxAlert>
+
+@code {
+
+	[Parameter]
+	public IEnumerable<string> Messages { get; set; }
+
+	[Parameter]
+	public RenderFragment ChildContent { get; set; }
+
+	[Parameter]
+	public Components.DtxAlert.AlertType Type { get; set; }
+
+}

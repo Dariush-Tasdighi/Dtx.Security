@@ -34,18 +34,18 @@ else
 			<tbody>
 				@for (int index = 0; index <= List.Count - 1; index++)
 				{
-					var entity = List[index];
+					var item = List[index];
 
 					<tr>
 						<td>
 							@(index + 1)
 						</td>
 						<td>
-							@(entity.Name)
+							@(item.Name)
 						</td>
 						<td>
-							@*@(entity.IsActive)*@
-							<DtxDisabledCheckBox Value="entity.IsActive" />
+							@*@(item.IsActive)*@
+							<DtxDisabledCheckBox Value="item.IsActive" />
 						</td>
 					</tr>
 				}
@@ -100,7 +100,7 @@ else
 
 	protected override Task OnInitializedAsync()
 	{
-		System.Threading.Thread.Sleep(5000);
+		//System.Threading.Thread.Sleep(5000);
 
 		List =
 			new List<Models.Application>();
